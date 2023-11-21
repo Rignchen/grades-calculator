@@ -10,6 +10,12 @@ A pure visual implementation of the grade calculator. No interactions, no logic,
 # Install dependencies
 npm i
 
+
 # Run the dev server
+npm start
+```
+
+```shell
+# Launch the dev server
 npm start
 ```
