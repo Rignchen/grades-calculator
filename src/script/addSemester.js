@@ -26,7 +26,6 @@ export function addSemester() {
       input.value = "";
       const gradeDiv = semester.querySelector("div");
       addGrade(grade, gradeDiv);
-      updateAverage(gradeDiv);
     }
   });
   semester.querySelector("input").addEventListener("keydown", (event) => {
@@ -37,7 +36,6 @@ export function addSemester() {
         event.target.value = "";
         const gradeDiv = semester.querySelector("div");
         addGrade(grade, gradeDiv);
-        updateAverage(gradeDiv);
       }
     }
   });

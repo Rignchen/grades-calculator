@@ -66,4 +66,5 @@ export function createGrade(grade, hasEvent = false) {
  */
 export function addGrade(grade, element) {
   element.appendChild(createGrade(grade, true));
+  updateAverage(element);
 }
