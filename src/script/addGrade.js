@@ -28,5 +28,11 @@ export function addGrade(grade, element) {
   const span = document.createElement("span");
   span.className = spanSVG.content.querySelector("span").className;
   span.innerHTML = curentColorDot.innerHTML + grade;
+
+  // Remove a grade when the user clicks on it
+  span.addEventListener("click", () => {
+    span.remove();
+  });
+
   element.appendChild(span);
 }
