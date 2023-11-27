@@ -1,14 +1,34 @@
+import { average, round } from "./math";
+
 const greenDotSVG = document.getElementById("green-dot-svg");
 const orangeDotSVG = document.getElementById("orange-dot-svg");
 const redDotSVG = document.getElementById("red-dot-svg");
 const spanSVG = document.getElementById("span-svg");
 
 /**
+ * @param {Element} gradeDiv
+ * @returns {void}
+ * update the average of the semester
+ */
+export function updateAverage(gradeDiv) {
+  // Update the average
+  const averageDiv = gradeDiv.parentElement.querySelector("dd > div.flex");
+  // remove the previous average if it exists
+  if (averageDiv.childElementCount >= 2) {
+    averageDiv.querySelector("span").remove();
+  }
+  const averageValue = average(gradeDiv);
+  if (averageValue) {
+    averageDiv.appendChild(createGrade(round(averageValue)));
+  }
+}
+/**
  * @param {number} grade
+ * @param {boolean} hasEvent
  * @returns {Element}
  * Return a span containing the grade
  */
-export function createGrade(grade) {
+export function createGrade(grade, hasEvent = false) {
   /*
     <span class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-2 text-sm font-medium text-gray-900 ring-1 ring-inset ring-gray-200">
     {color of the dot depending on the grade: <4 red, =4 orange, >4 green}
@@ -29,10 +49,13 @@ export function createGrade(grade) {
   span.innerHTML = curentColorDot.innerHTML + grade;
 
   // Remove a grade when the user clicks on it
-  span.addEventListener("click", () => {
-    span.remove();
-  });
-
+  if (hasEvent) {
+    span.addEventListener("dblclick", () => {
+      const gradeDiv = span.parentElement.parentElement;
+      span.remove();
+      updateAverage(gradeDiv);
+    });
+  }
   return span;
 }
 /**
@@ -42,5 +65,5 @@ export function createGrade(grade) {
  * Add a span containing the grade to the element
  */
 export function addGrade(grade, element) {
-  element.appendChild(createGrade(grade));
+  element.appendChild(createGrade(grade, true));
 }
