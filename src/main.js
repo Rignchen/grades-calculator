@@ -1,6 +1,14 @@
-import { addGrade } from "./script/addGrade";
+import { addSemester } from "./script/addSemester";
+
+addSemester();
+
+// Add a semester when the user clicks on a button
+document.querySelector("#newSemester").addEventListener("click", () => {
+  addSemester();
+});
 
 // Add a grade when the user clicks on a button
+/*
 document.querySelectorAll("button").forEach((button) => {
   button.addEventListener("click", () => {
     const grade = parseFloat(
@@ -31,3 +39,4 @@ document.querySelectorAll("input").forEach((input) => {
     }
   });
 });
+*/

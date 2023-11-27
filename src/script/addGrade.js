@@ -5,15 +5,14 @@ const spanSVG = document.getElementById("span-svg");
 
 /**
  * @param {number} grade
- * @param {Element} element
- * @returns {void}
- * Add a span containing the grade to the div element
+ * @returns {Element}
+ * Return a span containing the grade
  */
-export function addGrade(grade, element) {
+export function createGrade(grade) {
   /*
     <span class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-2 text-sm font-medium text-gray-900 ring-1 ring-inset ring-gray-200">
     {color of the dot depending on the grade: <4 red, =4 orange, >4 green}
-    {grade} 
+    {grade}
     </span>
      */
   let curentColorDot;
@@ -34,5 +33,14 @@ export function addGrade(grade, element) {
     span.remove();
   });
 
-  element.appendChild(span);
+  return span;
+}
+/**
+ * @param {number} grade
+ * @param {Element} element
+ * @returns {void}
+ * Add a span containing the grade to the element
+ */
+export function addGrade(grade, element) {
+  element.appendChild(createGrade(grade));
 }
