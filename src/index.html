@@ -6,7 +6,7 @@
   <link href="./main.css" rel="stylesheet" />
   <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
   <title>Grades</title>
-  <script type="module" src="./main.js"></script>
+  <script src="./main.js" type="module"></script>
 </head>
 <body class="h-full">
 <div class="min-h-full">
@@ -265,9 +265,8 @@
                                 <input
                                   class="block w-14 rounded-none rounded-l-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
                                   id="sem1"
-                                  name="email"
-                                  placeholder="4"
-                                  type="email"
+                                  max="6"
+                                  min="1" placeholder="4" step="0.5" type="number"
                                 />
                               </div>
                               <button
@@ -363,10 +362,8 @@
                                 <input
                                   class="block w-14 rounded-none rounded-l-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
                                   id="sem2"
-                                  name="email"
-                                  placeholder="4"
-                                  type="email"
-                                  value="4"
+                                  max="6" min="1"
+                                  placeholder="4" step="0.5" type="number" value="4"
                                 />
                               </div>
                               <button
