@@ -2,10 +2,11 @@
 <html class="h-full bg-gray-100" lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <link href="./main.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
   <title>Grades</title>
+  <script type="module" src="./main.js"></script>
 </head>
 <body class="h-full">
 <div class="min-h-full">
@@ -19,10 +20,10 @@
           <a class="text-sky-100" href="#">
             <span class="sr-only">Grades calculator</span>
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
               class="h-8 w-8"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
                 d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z"
@@ -40,22 +41,22 @@
         <!-- Right section on desktop -->
         <div class="hidden lg:ml-4 lg:flex lg:items-center lg:pr-0.5">
           <button
-            type="button"
             class="relative flex-shrink-0 rounded-full p-1 text-sky-100 hover:bg-white hover:bg-opacity-10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+            type="button"
           >
             <span class="absolute -inset-1.5"></span>
             <span class="sr-only">Reload</span>
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
+              class="w-6 h-6"
               fill="currentColor"
               stroke="currentColor"
-              class="w-6 h-6"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
-                d="M4.755 10.059a7.5 7.5 0 0112.548-3.364l1.903 1.903h-3.183a.75.75 0 100 1.5h4.992a.75.75 0 00.75-.75V4.356a.75.75 0 00-1.5 0v3.18l-1.9-1.9A9 9 0 003.306 9.67a.75.75 0 101.45.388zm15.408 3.352a.75.75 0 00-.919.53 7.5 7.5 0 01-12.548 3.364l-1.902-1.903h3.183a.75.75 0 000-1.5H2.984a.75.75 0 00-.75.75v4.992a.75.75 0 001.5 0v-3.18l1.9 1.9a9 9 0 0015.059-4.035.75.75 0 00-.53-.918z"
                 clip-rule="evenodd"
+                d="M4.755 10.059a7.5 7.5 0 0112.548-3.364l1.903 1.903h-3.183a.75.75 0 100 1.5h4.992a.75.75 0 00.75-.75V4.356a.75.75 0 00-1.5 0v3.18l-1.9-1.9A9 9 0 003.306 9.67a.75.75 0 101.45.388zm15.408 3.352a.75.75 0 00-.919.53 7.5 7.5 0 01-12.548 3.364l-1.902-1.903h3.183a.75.75 0 000-1.5H2.984a.75.75 0 00-.75.75v4.992a.75.75 0 001.5 0v-3.18l1.9 1.9a9 9 0 0015.059-4.035.75.75 0 00-.53-.918z"
+                fill-rule="evenodd"
               />
             </svg>
           </button>
@@ -69,32 +70,32 @@
             <nav class="flex space-x-4">
               <!-- Current: "text-white", Default: "text-sky-100" -->
               <a
-                href="#"
                 class="text-white font-bold rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm hover:bg-opacity-10"
+                href="#"
               >
                 Math</a
               >
               <a
-                href="#"
                 class="text-sky-100 rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm font-medium hover:bg-opacity-10"
+                href="#"
               >
                 Société</a
               >
               <a
-                href="#"
                 class="text-sky-100 rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm font-medium hover:bg-opacity-10"
+                href="#"
               >
                 Anglais</a
               >
               <a
-                href="#"
                 class="text-sky-100 rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm font-medium hover:bg-opacity-10"
+                href="#"
               >
                 Modules EPSIC</a
               >
               <a
-                href="#"
                 class="text-sky-100 rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm font-medium hover:bg-opacity-10"
+                href="#"
               >
                 CIE</a
               >
@@ -130,9 +131,9 @@
                           class="inline-flex items-center gap-x-1.5 rounded-md px-3 py-1 text-lg font-bold text-gray-900 ring-1 ring-inset ring-gray-200"
                         >
                           <svg
+                            aria-hidden="true"
                             class="h-1.5 w-1.5 fill-green-500"
                             viewBox="0 0 6 6"
-                            aria-hidden="true"
                           >
                             <circle cx="3" cy="3" r="3" />
                           </svg>
@@ -159,9 +160,9 @@
                                 class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-2 text-sm font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
                               >
                                 <svg
+                                  aria-hidden="true"
                                   class="h-1.5 w-1.5 fill-yellow-500"
                                   viewBox="0 0 6 6"
-                                  aria-hidden="true"
                                 >
                                   <circle cx="3" cy="3" r="3" />
                                 </svg>
@@ -171,9 +172,9 @@
                             class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-2 text-sm font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
                           >
                                 <svg
+                                  aria-hidden="true"
                                   class="h-1.5 w-1.5 fill-red-500"
                                   viewBox="0 0 6 6"
-                                  aria-hidden="true"
                                 >
                                   <circle cx="3" cy="3" r="3" />
                                 </svg>
@@ -183,9 +184,9 @@
                             class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-2 text-sm font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
                           >
                                 <svg
+                                  aria-hidden="true"
                                   class="h-1.5 w-1.5 fill-red-500"
                                   viewBox="0 0 6 6"
-                                  aria-hidden="true"
                                 >
                                   <circle cx="3" cy="3" r="3" />
                                 </svg>
@@ -195,9 +196,9 @@
                             class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-2 text-sm font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
                           >
                                 <svg
+                                  aria-hidden="true"
                                   class="h-1.5 w-1.5 fill-green-500"
                                   viewBox="0 0 6 6"
-                                  aria-hidden="true"
                                 >
                                   <circle cx="3" cy="3" r="3" />
                                 </svg>
@@ -207,9 +208,9 @@
                             class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-2 text-sm font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
                           >
                                 <svg
+                                  aria-hidden="true"
                                   class="h-1.5 w-1.5 fill-red-500"
                                   viewBox="0 0 6 6"
-                                  aria-hidden="true"
                                 >
                                   <circle cx="3" cy="3" r="3" />
                                 </svg>
@@ -219,9 +220,9 @@
                             class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-2 text-sm font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
                           >
                                 <svg
+                                  aria-hidden="true"
                                   class="h-1.5 w-1.5 fill-green-500"
                                   viewBox="0 0 6 6"
-                                  aria-hidden="true"
                                 >
                                   <circle cx="3" cy="3" r="3" />
                                 </svg>
@@ -231,9 +232,9 @@
                             class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-2 text-sm font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
                           >
                                 <svg
+                                  aria-hidden="true"
                                   class="h-1.5 w-1.5 fill-red-500"
                                   viewBox="0 0 6 6"
-                                  aria-hidden="true"
                                 >
                                   <circle cx="3" cy="3" r="3" />
                                 </svg>
@@ -243,9 +244,9 @@
                             class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-2 text-sm font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
                           >
                                 <svg
+                                  aria-hidden="true"
                                   class="h-1.5 w-1.5 fill-green-500"
                                   viewBox="0 0 6 6"
-                                  aria-hidden="true"
                                 >
                                   <circle cx="3" cy="3" r="3" />
                                 </svg>
@@ -254,7 +255,7 @@
                         </div>
                         <div class="flex">
                           <div>
-                            <label for="sem1" class="sr-only"
+                            <label class="sr-only" for="sem1"
                             >Search candidates</label
                             >
                             <div class="flex rounded-md shadow-sm">
@@ -262,27 +263,27 @@
                                 class="relative flex flex-grow items-stretch focus-within:z-10"
                               >
                                 <input
-                                  type="email"
-                                  name="email"
-                                  id="sem1"
                                   class="block w-14 rounded-none rounded-l-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                                  id="sem1"
+                                  name="email"
                                   placeholder="4"
+                                  type="email"
                                 />
                               </div>
                               <button
-                                type="button"
                                 class="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r-md px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                                type="button"
                               >
                                 <svg
-                                  class="-ml-0.5 h-5 w-5 text-gray-400"
-                                  viewBox="0 0 20 20"
-                                  fill="currentColor"
                                   aria-hidden="true"
+                                  class="-ml-0.5 h-5 w-5 text-gray-400"
+                                  fill="currentColor"
+                                  viewBox="0 0 20 20"
                                 >
                                   <path
-                                    fill-rule="evenodd"
-                                    d="M2 3.75A.75.75 0 012.75 3h11.5a.75.75 0 010 1.5H2.75A.75.75 0 012 3.75zM2 7.5a.75.75 0 01.75-.75h6.365a.75.75 0 010 1.5H2.75A.75.75 0 012 7.5zM14 7a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02l-1.95-2.1v6.59a.75.75 0 01-1.5 0V9.66l-1.95 2.1a.75.75 0 11-1.1-1.02l3.25-3.5A.75.75 0 0114 7zM2 11.25a.75.75 0 01.75-.75H7A.75.75 0 017 12H2.75a.75.75 0 01-.75-.75z"
                                     clip-rule="evenodd"
+                                    d="M2 3.75A.75.75 0 012.75 3h11.5a.75.75 0 010 1.5H2.75A.75.75 0 012 3.75zM2 7.5a.75.75 0 01.75-.75h6.365a.75.75 0 010 1.5H2.75A.75.75 0 012 7.5zM14 7a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02l-1.95-2.1v6.59a.75.75 0 01-1.5 0V9.66l-1.95 2.1a.75.75 0 11-1.1-1.02l3.25-3.5A.75.75 0 0114 7zM2 11.25a.75.75 0 01.75-.75H7A.75.75 0 017 12H2.75a.75.75 0 01-.75-.75z"
+                                    fill-rule="evenodd"
                                   />
                                 </svg>
                               </button>
@@ -292,9 +293,9 @@
                             class="ml-1 inline-flex items-center gap-x-1.5 rounded-md px-2 py-2 text-sm font-bold text-gray-900 ring-1 ring-inset ring-gray-300"
                           >
                                 <svg
+                                  aria-hidden="true"
                                   class="h-1.5 w-1.5 fill-green-500"
                                   viewBox="0 0 6 6"
-                                  aria-hidden="true"
                                 >
                                   <circle cx="3" cy="3" r="3" />
                                 </svg>
@@ -317,9 +318,9 @@
                                 class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-2 text-sm font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
                               >
                                 <svg
+                                  aria-hidden="true"
                                   class="h-1.5 w-1.5 fill-yellow-500"
                                   viewBox="0 0 6 6"
-                                  aria-hidden="true"
                                 >
                                   <circle cx="3" cy="3" r="3" />
                                 </svg>
@@ -329,9 +330,9 @@
                             class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-2 text-sm font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
                           >
                                 <svg
+                                  aria-hidden="true"
                                   class="h-1.5 w-1.5 fill-red-500"
                                   viewBox="0 0 6 6"
-                                  aria-hidden="true"
                                 >
                                   <circle cx="3" cy="3" r="3" />
                                 </svg>
@@ -341,9 +342,9 @@
                             class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-2 text-sm font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
                           >
                                 <svg
+                                  aria-hidden="true"
                                   class="h-1.5 w-1.5 fill-green-500"
                                   viewBox="0 0 6 6"
-                                  aria-hidden="true"
                                 >
                                   <circle cx="3" cy="3" r="3" />
                                 </svg>
@@ -352,7 +353,7 @@
                         </div>
                         <div class="flex">
                           <div>
-                            <label for="sem2" class="sr-only"
+                            <label class="sr-only" for="sem2"
                             >Search candidates</label
                             >
                             <div class="flex rounded-md shadow-sm">
@@ -360,28 +361,28 @@
                                 class="relative flex flex-grow items-stretch focus-within:z-10"
                               >
                                 <input
-                                  type="email"
-                                  name="email"
-                                  id="sem2"
                                   class="block w-14 rounded-none rounded-l-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                                  id="sem2"
+                                  name="email"
                                   placeholder="4"
+                                  type="email"
                                   value="4"
                                 />
                               </div>
                               <button
-                                type="button"
                                 class="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r-md px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-blue-300 hover:bg-gray-50"
+                                type="button"
                               >
                                 <svg
-                                  class="-ml-0.5 h-5 w-5 text-blue-400"
-                                  viewBox="0 0 20 20"
-                                  fill="currentColor"
                                   aria-hidden="true"
+                                  class="-ml-0.5 h-5 w-5 text-blue-400"
+                                  fill="currentColor"
+                                  viewBox="0 0 20 20"
                                 >
                                   <path
-                                    fill-rule="evenodd"
-                                    d="M2 3.75A.75.75 0 012.75 3h11.5a.75.75 0 010 1.5H2.75A.75.75 0 012 3.75zM2 7.5a.75.75 0 01.75-.75h6.365a.75.75 0 010 1.5H2.75A.75.75 0 012 7.5zM14 7a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02l-1.95-2.1v6.59a.75.75 0 01-1.5 0V9.66l-1.95 2.1a.75.75 0 11-1.1-1.02l3.25-3.5A.75.75 0 0114 7zM2 11.25a.75.75 0 01.75-.75H7A.75.75 0 017 12H2.75a.75.75 0 01-.75-.75z"
                                     clip-rule="evenodd"
+                                    d="M2 3.75A.75.75 0 012.75 3h11.5a.75.75 0 010 1.5H2.75A.75.75 0 012 3.75zM2 7.5a.75.75 0 01.75-.75h6.365a.75.75 0 010 1.5H2.75A.75.75 0 012 7.5zM14 7a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02l-1.95-2.1v6.59a.75.75 0 01-1.5 0V9.66l-1.95 2.1a.75.75 0 11-1.1-1.02l3.25-3.5A.75.75 0 0114 7zM2 11.25a.75.75 0 01.75-.75H7A.75.75 0 017 12H2.75a.75.75 0 01-.75-.75z"
+                                    fill-rule="evenodd"
                                   />
                                 </svg>
                               </button>
@@ -391,9 +392,9 @@
                             class="ml-1 inline-flex items-center gap-x-1.5 rounded-md px-2 py-2 text-sm font-bold text-gray-900 ring-1 ring-inset ring-gray-300"
                           >
                                 <svg
+                                  aria-hidden="true"
                                   class="h-1.5 w-1.5 fill-green-500"
                                   viewBox="0 0 6 6"
-                                  aria-hidden="true"
                                 >
                                   <circle cx="3" cy="3" r="3" />
                                 </svg>
@@ -404,21 +405,21 @@
                     </div>
                     <div class="px-4 py-6 sm:gap-4 sm:px-0">
                       <button
-                        type="button"
                         class="relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-4 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        type="button"
                       >
                         <svg
                           class="mx-auto h-8 w-8 text-gray-400"
-                          xmlns="http://www.w3.org/2000/svg"
                           fill="none"
-                          viewBox="0 0 24 24"
-                          stroke-width="1.5"
                           stroke="currentColor"
+                          stroke-width="1.5"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
+                            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"
                             stroke-linecap="round"
                             stroke-linejoin="round"
-                            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"
                           />
                         </svg>
                         <span
@@ -550,4 +551,25 @@
   </main>
 </div>
 </body>
+
+<template id="green-dot-svg">
+  <svg aria-hidden="true" class="h-1.5 w-1.5 fill-green-500" viewBox="0 0 6 6">
+    <circle cx="3" cy="3" r="3" />
+  </svg>
+</template>
+<template id="orange-dot-svg">
+  <svg aria-hidden="true" class="h-1.5 w-1.5 fill-yellow-500" viewBox="0 0 6 6">
+    <circle cx="3" cy="3" r="3" />
+  </svg>
+</template>
+<template id="red-dot-svg">
+  <svg aria-hidden="true" class="h-1.5 w-1.5 fill-red-500" viewBox="0 0 6 6">
+    <circle cx="3" cy="3" r="3" />
+  </svg>
+</template>
+<template id="span-svg">
+  <span
+    class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-2 text-sm font-medium text-gray-900 ring-1 ring-inset ring-gray-200"></span>
+</template>
+
 </html>
