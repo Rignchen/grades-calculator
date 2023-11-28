@@ -53,7 +53,7 @@ export function createGrade(grade, hasEvent = false) {
 
   // Remove a grade when the user clicks on it
   if (hasEvent) {
-    span.addEventListener("dblclick", () => {
+    span.addEventListener("auxclick", () => {
       const gradeDiv = span.parentElement.parentElement;
       span.remove();
       updateAverage(gradeDiv);
@@ -68,6 +68,7 @@ export function createGrade(grade, hasEvent = false) {
  * Add a span containing the grade to the element
  */
 export function addGrade(grade, element) {
+  if (element.childElementCount >= 1) element.append(" ");
   element.appendChild(createGrade(grade, true));
   updateAverage(element);
 }
