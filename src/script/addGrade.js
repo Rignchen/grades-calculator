@@ -1,13 +1,14 @@
-import { updateAverage } from "./updateAverage";
+import { updateGradeAverage as updateAverage } from "./updateAverage";
 import { createGrade } from "./gradeTemplate";
 
 /**
  * @param {number} grade
  * @param {Element} element
+ * @param {boolean} shouldUpdateAverage
  * @returns {void}
  * Add a span containing the grade to the element
  */
-export function addGrade(grade, element) {
+export function addGrade(grade, element, shouldUpdateAverage = true) {
   if (element.childElementCount >= 1) element.append(" ");
   const grd = createGrade(grade);
 
@@ -20,5 +21,5 @@ export function addGrade(grade, element) {
 
   // Add the grade to the element
   element.appendChild(grd);
-  updateAverage(element);
+  if (shouldUpdateAverage) updateAverage(element);
 }

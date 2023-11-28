@@ -9,11 +9,11 @@ export function setRandomBastienValues() {
   ];
   for (const semester in grades) {
     addSemester();
-    console.log(grades[semester]);
     for (const i in grades[semester]) {
       addGrade(
         grades[semester][i],
         semesterList.lastElementChild.querySelector("div"),
+        i + "" === grades[semester].length - 1 + "",
       );
     }
   }

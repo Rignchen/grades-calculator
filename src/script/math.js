@@ -1,17 +1,16 @@
 /**
- * @param {Element} gradeList
+ * @param {Element[]|NodeListOf<Element>} gradeList
  * @returns {number|false}
  */
 export function average(gradeList) {
-  const grades = gradeList.querySelectorAll("span");
-  if (grades.length === 0) {
+  if (gradeList.length === 0) {
     return false;
   }
   let sum = 0;
-  for (const grade of grades) {
+  for (const grade of gradeList) {
     sum += parseFloat(grade.textContent);
   }
-  return sum / grades.length;
+  return sum / gradeList.length;
 }
 export function round(grade) {
   return Math.round(grade * 2) / 2;
