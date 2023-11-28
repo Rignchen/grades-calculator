@@ -1,4 +1,4 @@
-import { addGrade, updateAverage } from "./addGrade.js";
+import { addGrade } from "./addGrade.js";
 
 /**
  * @returns {void}
@@ -18,7 +18,8 @@ export function addSemester() {
     `Semester ${semesterList.childElementCount}`;
 
   // Add a grade when the user clicks on a button
-  semester.querySelector("button").addEventListener("click", () => {
+  const button = semester.querySelector("button");
+  button.addEventListener("click", () => {
     const input = semester.querySelector("input");
     const grade = parseFloat(input.value);
     // only add a grade if the input is a number between 1 and 6 included with a precision of 0.5
@@ -28,7 +29,8 @@ export function addSemester() {
       addGrade(grade, gradeDiv);
     }
   });
-  semester.querySelector("input").addEventListener("keydown", (event) => {
+  const input = semester.querySelector("input");
+  input.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       const grade = parseFloat(event.target.value);
       // only add a grade if the input is a number between 1 and 6 included with a precision of 0.5
@@ -38,6 +40,23 @@ export function addSemester() {
         addGrade(grade, gradeDiv);
       }
     }
+  });
+  const svg = button.querySelector("svg");
+  input.addEventListener("focus", () => {
+    input.classList.remove("ring-gray-300");
+    input.classList.add("ring-blue-300");
+    button.classList.remove("ring-gray-300");
+    button.classList.add("ring-blue-300");
+    svg.classList.remove("text-gray-400");
+    svg.classList.add("text-blue-400");
+  });
+  input.addEventListener("blur", () => {
+    input.classList.remove("ring-blue-300");
+    input.classList.add("ring-gray-300");
+    button.classList.remove("ring-blue-300");
+    button.classList.add("ring-gray-300");
+    svg.classList.remove("text-blue-400");
+    svg.classList.add("text-gray-400");
   });
 
   // Add a grade when the user clicks on a button
