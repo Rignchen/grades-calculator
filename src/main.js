@@ -2,6 +2,7 @@ import { addSemester } from "./script/addSemester";
 import { setRandomBastienValues } from "./setRandomBastienValues";
 
 setRandomBastienValues();
+addSemester();
 
 // Add a semester when the user clicks on a button
 document.querySelector("#newSemester").addEventListener("click", () => {
