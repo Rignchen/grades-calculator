@@ -36,12 +36,14 @@ export function updateSemesterAverage() {
     if (semesterAverage !== null) averageList.push(semesterAverage);
   });
   const averageDiv = document.querySelector("#currentAverage");
-  let oldAverage = averageDiv.querySelector("span");
-  if (oldAverage !== null) oldAverage = round(parseFloat(oldAverage.innerText));
   if (averageList.length === 0) averageDiv.innerHTML = "";
   else {
+    let oldAverage = averageDiv.querySelector("span");
     const averageValue = round(average(averageList));
-    if (oldAverage !== averageValue)
+    if (
+      oldAverage === null ||
+      averageValue !== round(parseFloat(oldAverage.innerText))
+    )
       averageDiv.innerHTML = createGrade(averageValue).outerHTML;
   }
 }
