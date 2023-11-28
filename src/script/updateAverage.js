@@ -43,7 +43,11 @@ export function updateSemesterAverage() {
     if (
       oldAverage === null ||
       averageValue !== round(parseFloat(oldAverage.innerText))
-    )
-      averageDiv.innerHTML = createGrade(averageValue).outerHTML;
+    ) {
+      const avr = createGrade(averageValue);
+      avr.classList.add("px-3", "py-1", "text-lg", "font-bold");
+      avr.classList.remove("px-2", "py-2", "text-sm", "font-medium");
+      averageDiv.innerHTML = avr.outerHTML;
+    }
   }
 }
