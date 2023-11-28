@@ -12,7 +12,7 @@ const spanSVG = document.getElementById("span-svg");
  */
 export function updateAverage(gradeDiv) {
   // Update the average
-  const averageDiv = gradeDiv.parentElement.querySelector("dd > div.flex");
+  const averageDiv = gradeDiv.parentElement.querySelector("dd > div.add-grade");
   // remove the previous average if it exists
   if (averageDiv.childElementCount >= 2) {
     averageDiv.querySelector("span").remove();
