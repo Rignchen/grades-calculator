@@ -19,7 +19,10 @@ export function updateAverage(gradeDiv) {
   }
   const averageValue = average(gradeDiv);
   if (averageValue) {
-    averageDiv.appendChild(createGrade(round(averageValue)));
+    const avr = createGrade(round(averageValue));
+    avr.classList.remove("font-medium", "ring-gray-200");
+    avr.classList.add("ml-1", "font-bold", "ring-gray-300");
+    averageDiv.appendChild(avr);
   }
 }
 /**
