@@ -30,6 +30,7 @@ export function addSemester() {
     }
   });
   const input = semester.querySelector("input");
+  input.id = `sem${semesterList.childElementCount}`;
   input.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       const grade = parseFloat(event.target.value);

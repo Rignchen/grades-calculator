@@ -1,5 +1,5 @@
-import { addSemester } from "./script/addSemester";
-import { addGrade } from "./script/addGrade";
+import { addSemester } from "./addSemester";
+import { addGrade } from "./addGrade";
 
 export function setRandomBastienValues() {
   const semesterList = document.querySelector("#semesterList");

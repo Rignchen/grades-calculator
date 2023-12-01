@@ -1,7 +1,7 @@
 import { addSemester } from "./script/addSemester";
-import { setRandomBastienValues } from "./setRandomBastienValues";
+import { setRandomBastienValues } from "./script/setRandomBastienValues";
 
-setRandomBastienValues();
+//setRandomBastienValues();
 addSemester();
 
 // Add a semester when the user clicks on a button
