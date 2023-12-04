@@ -1,4 +1,4 @@
-import { average, round, slice } from "./math";
+import { average, round } from "./math";
 import { createGrade } from "./gradeTemplate";
 import {
   currentSubject,
@@ -65,11 +65,18 @@ export function updateSemesterAverage() {
 
       // Write the average in the list on the right
       const listAverage = document.querySelector("#averages");
-      const currentSubjectAverage =
-        listAverage.children[currentSubject].lastElementChild;
-      const oldAverage = currentSubjectAverage.innerText;
-      currentSubjectAverage.innerText = averageValue;
-      if (oldAverage !== averageValue) updateGlobalAverage();
+      const currentSubjectAverage = listAverage.children[currentSubject];
+      const currentSubjectAverageGrade = currentSubjectAverage.lastElementChild;
+      const oldAverage = currentSubjectAverageGrade.innerText;
+      currentSubjectAverageGrade.innerText = averageValue;
+      if (oldAverage !== averageValue) {
+        updateGlobalAverage();
+        upgradePercent(
+          currentSubjectAverage.querySelector("dd"),
+          oldAverage,
+          averageValue,
+        );
+      }
       // upgrade = (new/old - 1) * 100
       // if upgrade > 0 => green
       // if upgrade < 0 => red
@@ -83,7 +90,11 @@ export function updateGlobalAverage() {
   let sum = 0;
   let count = 0;
 
-  updateComputerScienceAverage();
+  if (
+    currentSubject === allSubjects.indexOf("epsic") ||
+    currentSubject === allSubjects.indexOf("cie")
+  )
+    updateComputerScienceAverage();
 
   for (const subjectName of globalAverageCalculateFrom) {
     const average =
@@ -93,8 +104,13 @@ export function updateGlobalAverage() {
       count++;
     }
   }
+  const oldAverage = averageList[0].lastElementChild.innerText;
   if (count === 0) averageList[0].lastElementChild.innerText = "";
-  else averageList[0].lastElementChild.innerText = round(sum / count, 0.1);
+  else {
+    const newAverage = round(sum / count, 0.1);
+    averageList[0].lastElementChild.innerText = newAverage;
+    upgradePercent(averageList[0].querySelector("dd"), oldAverage, newAverage);
+  }
 }
 function updateComputerScienceAverage() {
   // computer science average = 80% epsic + 20% cie
@@ -103,10 +119,34 @@ function updateComputerScienceAverage() {
     average.children[allSubjects.indexOf("epsic")].lastElementChild.innerText;
   const cie =
     average.children[allSubjects.indexOf("cie")].lastElementChild.innerText;
-  const computerScience =
+  const computerScience = average.children[allSubjects.indexOf("computer")];
+  const computerScienceGrade =
     average.children[allSubjects.indexOf("computer")].lastElementChild;
-  if (epsic === "" && cie === "") computerScience.innerText = "";
-  else if (cie === "") computerScience.innerText = epsic;
-  else if (epsic === "") computerScience.innerText = cie;
-  else computerScience.innerText = round(0.8 * epsic + 0.2 * cie, 0.1);
+  const oldAverage = computerScienceGrade.innerText;
+  let newAverage = "";
+  if (epsic === "" && cie === "") newAverage = "";
+  else if (cie === "") newAverage = epsic;
+  else if (epsic === "") newAverage = cie;
+  else newAverage = round(0.8 * epsic + 0.2 * cie, 0.1) + "";
+
+  if (oldAverage !== newAverage) {
+    computerScienceGrade.innerText = newAverage;
+    upgradePercent(computerScience.querySelector("dd"), oldAverage, newAverage);
+  }
+}
+function upgradePercent(percentArea, oldAverage, newAverage) {
+  let pomme = "";
+  if (oldAverage !== "" && newAverage !== "")
+    pomme = round((newAverage / oldAverage - 1) * 100, 0.01);
+  if (pomme > 0) {
+    percentArea.innerText = `+${pomme}%`;
+    percentArea.classList.remove("text-red-700");
+    percentArea.classList.add("text-green-600");
+  } else if (pomme < 0) {
+    percentArea.innerText = `${pomme}%`;
+    percentArea.classList.remove("text-green-600");
+    percentArea.classList.add("text-red-700");
+  } else {
+    percentArea.innerText = "";
+  }
 }
