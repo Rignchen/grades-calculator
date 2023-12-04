@@ -1,6 +1,10 @@
 import { average, round, slice } from "./math";
 import { createGrade } from "./gradeTemplate";
-import { currentSubject } from "../var";
+import {
+  currentSubject,
+  allSubjects,
+  globalAverageCalculateFrom,
+} from "../var";
 
 /**
  * @param {Element} gradeDiv
@@ -66,20 +70,43 @@ export function updateSemesterAverage() {
       const oldAverage = currentSubjectAverage.innerText;
       currentSubjectAverage.innerText = averageValue;
       if (oldAverage !== averageValue) updateGlobalAverage();
+      // upgrade = (new/old - 1) * 100
+      // if upgrade > 0 => green
+      // if upgrade < 0 => red
+      // if upgrade = 0/old/new not existent => hidden
     }
   }
 }
-function updateGlobalAverage() {
+export function updateGlobalAverage() {
   // Update the global average from the average of all subjects
   const averageList = document.querySelector("#averages").children;
   let sum = 0;
   let count = 0;
-  for (const subject of slice(averageList, 1, -1)) {
-    const average = subject.lastElementChild.innerText;
+
+  updateComputerScienceAverage();
+
+  for (const subjectName of globalAverageCalculateFrom) {
+    const average =
+      averageList[allSubjects.indexOf(subjectName)].lastElementChild.innerText;
     if (average !== "") {
       sum += parseFloat(average);
       count++;
     }
   }
-  averageList[0].lastElementChild.innerText = round(sum / count, 0.1);
+  if (count === 0) averageList[0].lastElementChild.innerText = "";
+  else averageList[0].lastElementChild.innerText = round(sum / count, 0.1);
+}
+function updateComputerScienceAverage() {
+  // computer science average = 80% epsic + 20% cie
+  const average = document.querySelector("#averages");
+  const epsic =
+    average.children[allSubjects.indexOf("epsic")].lastElementChild.innerText;
+  const cie =
+    average.children[allSubjects.indexOf("cie")].lastElementChild.innerText;
+  const computerScience =
+    average.children[allSubjects.indexOf("computer")].lastElementChild;
+  if (epsic === "" && cie === "") computerScience.innerText = "";
+  else if (cie === "") computerScience.innerText = epsic;
+  else if (epsic === "") computerScience.innerText = cie;
+  else computerScience.innerText = round(0.8 * epsic + 0.2 * cie, 0.1);
 }

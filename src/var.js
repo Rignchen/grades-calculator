@@ -8,12 +8,16 @@ export const allSubjects = [
   "epsic",
   "cie",
 ];
+export const globalAverageCalculateFrom = [
+  "math",
+  "society",
+  "english",
+  "computer",
+];
 export const allSubjectsName = [
-  "Moyenne générale",
   "Mathématiques",
   "Société",
   "Anglais",
-  "Informatique",
   "Modules EPSIC",
   "Modules CIE",
 ];
