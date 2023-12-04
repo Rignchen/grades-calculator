@@ -47,9 +47,10 @@ export function updateSemesterAverage() {
   const averageDiv = document.querySelector("#currentAverage");
   if (averageList.length === 0) {
     averageDiv.innerHTML = "";
-    document.querySelector("#averages").children[
-      currentSubject
-    ].lastElementChild.innerText = "";
+    const averageGrade =
+      document.querySelector("#averages").children[currentSubject];
+    averageGrade.lastElementChild.innerText = "";
+    averageGrade.querySelector("dd").innerText = "";
     updateGlobalAverage();
   } else {
     let oldAverage = averageDiv.querySelector("span");
