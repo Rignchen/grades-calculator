@@ -6,23 +6,19 @@ export let currentSubject = 1;
 
 /**
  * @param newSubject {number}
+ * @param subjectLink {NodeListOf<Element>}
  */
-export function changeSubject(newSubject) {
+export function changeSubject(newSubject, subjectLink) {
   // remove the grades and semesters from the previous subject
   const semesterLest = document.querySelector("#semesterList");
   semesterLest.innerHTML = "";
   addSemester();
 
   // remove the blod from the previous subject
-  var subjectLink = document.querySelector("header").querySelectorAll("a")[
-    conversionSubject[currentSubject]
-  ].classList;
-  subjectLink.remove("font-bold", "text-white");
-  subjectLink.add("font-medium", "text-sky-100");
-
-  console.log(allSubjectsName[currentSubject]);
-  console.log(currentSubject);
-  console.log(conversionSubject[currentSubject]);
+  var currentSubjectLink =
+    subjectLink[conversionSubject[currentSubject]].classList;
+  currentSubjectLink.remove("font-bold", "text-white");
+  currentSubjectLink.add("font-medium", "text-sky-100");
 
   // set the value of the new subject
   currentSubject = newSubject;
@@ -37,11 +33,10 @@ export function changeSubject(newSubject) {
     allSubjectsName[currentSubject];
 
   // set the current link in blod
-  var subjectLink = document.querySelector("header").querySelectorAll("a")[
-    conversionSubject[currentSubject]
-  ].classList;
-  subjectLink.add("font-bold", "text-white");
-  subjectLink.remove("font-medium", "text-sky-100");
+  var currentSubjectLink =
+    subjectLink[conversionSubject[currentSubject]].classList;
+  currentSubjectLink.add("font-bold", "text-white");
+  currentSubjectLink.remove("font-medium", "text-sky-100");
 
   // focus the new subject
   focus();

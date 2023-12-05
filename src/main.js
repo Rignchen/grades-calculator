@@ -8,23 +8,24 @@ import { currentSubject } from "./script/changeSubject";
 addSemester();
 
 // Add a semester when the user clicks on a button
-document.querySelector("#newSemester").addEventListener("click", () => {
-  if (document.querySelector("#semesterList").childElementCount >= 8) return;
+const semesterList = document.querySelector("#semesterList");
+const newSemester = document.querySelector("#newSemester");
+newSemester.addEventListener("click", () => {
+  if (semesterList.childElementCount >= 8) return;
   addSemester();
   focus();
-  if (document.querySelector("#semesterList").childElementCount >= 8)
-    document
-      .querySelector("#newSemester")
-      .parentElement.classList.add("hidden");
+  if (semesterList.childElementCount >= 8)
+    newSemester.parentElement.classList.add("hidden");
 });
 
-document.querySelectorAll("header a").forEach((link) => {
+const pageLink = document.querySelectorAll("header nav a");
+pageLink.forEach((link) => {
   link.addEventListener("click", () => {
     const newSubject = Number(
       allSubjects.indexOf(link.innerText.toLowerCase()),
     );
     if (newSubject !== currentSubject) {
-      changeSubject(newSubject);
+      changeSubject(newSubject, pageLink);
     }
   });
 });
