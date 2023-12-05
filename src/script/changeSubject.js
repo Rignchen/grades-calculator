@@ -21,8 +21,8 @@ export function changeSubject(newSubject, subjectLink) {
   addSemester();
 
   // remove the blod from the previous subject
-  var currentSubjectLink =
-    subjectLink[conversionSubject[currentSubject]].classList;
+  let currentSubjectLink;
+  currentSubjectLink = subjectLink[conversionSubject[currentSubject]].classList;
   currentSubjectLink.remove("font-bold", "text-white");
   currentSubjectLink.add("font-medium", "text-sky-100");
 
@@ -39,8 +39,7 @@ export function changeSubject(newSubject, subjectLink) {
     allSubjectsName[currentSubject];
 
   // set the current link in blod
-  var currentSubjectLink =
-    subjectLink[conversionSubject[currentSubject]].classList;
+  currentSubjectLink = subjectLink[conversionSubject[currentSubject]].classList;
   currentSubjectLink.add("font-bold", "text-white");
   currentSubjectLink.remove("font-medium", "text-sky-100");
 
