@@ -1,3 +1,10 @@
+/*
+Made by Rignchen
+12/23
+this website is used to store and calculate my grades
+store some global constantes in the same file to change them easily
+ */
+
 export const allSubjects = [
   "global",
   "math",

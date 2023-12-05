@@ -1,3 +1,9 @@
+/*
+Made by Rignchen
+12/23
+this website is used to store and calculate my grades
+simulate the change of a page
+ */
 import { allSubjectsName, conversionSubject } from "../var";
 import { addSemester } from "./addSemester";
 import { focus } from "../lib";

@@ -1,3 +1,9 @@
+/*
+Made by Rignchen
+12/23
+this website is used to store and calculate my grades
+calculate math functions required for the website
+ */
 /**
  * @param {Element[]|NodeListOf<Element>} gradeList
  * @returns {number|false}

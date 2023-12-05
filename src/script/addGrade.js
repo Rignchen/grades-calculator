@@ -1,3 +1,9 @@
+/*
+Made by Rignchen
+12/23
+this website is used to store and calculate my grades
+add the grades in an element
+ */
 import { updateGradeAverage as updateAverage } from "./updateAverage";
 import { createGrade } from "./gradeTemplate";
 

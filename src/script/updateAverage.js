@@ -1,3 +1,9 @@
+/*
+Made by Rignchen
+12/23
+this website is used to store and calculate my grades
+update the average of the different elements
+ */
 import { average, round } from "./math";
 import { createGrade } from "./gradeTemplate";
 import { allSubjects, globalAverageCalculateFrom } from "../var";

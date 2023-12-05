@@ -1,3 +1,9 @@
+/*
+Made by Rignchen
+12/23
+this website is used to store and calculate my grades
+create the visual element containing the grade
+ */
 const greenDotSVG = document.getElementById("green-dot-svg");
 const orangeDotSVG = document.getElementById("orange-dot-svg");
 const redDotSVG = document.getElementById("red-dot-svg");

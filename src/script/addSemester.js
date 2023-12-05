@@ -1,3 +1,9 @@
+/*
+Made by Rignchen
+12/23
+this website is used to store and calculate my grades
+add new semesters to the list of semesters
+ */
 import { addGrade } from "./addGrade.js";
 
 function gradeInput(input, semester) {

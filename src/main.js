@@ -1,3 +1,10 @@
+/*
+Made by Rignchen
+12/23
+this website is used to store and calculate my grades
+main function, used to call new semester loading and change of pages
+ */
+
 import { addSemester } from "./script/addSemester";
 import { updateGlobalAverage } from "./script/updateAverage";
 import { focus } from "./lib";
