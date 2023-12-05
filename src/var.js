@@ -22,3 +22,4 @@ export const allSubjectsName = [
   "Modules EPSIC",
   "Modules CIE",
 ];
+export const conversionSubject = [NaN, 1, 2, 3, NaN, 4, 5];
