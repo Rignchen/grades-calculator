@@ -1,10 +1,7 @@
 import { average, round } from "./math";
 import { createGrade } from "./gradeTemplate";
-import {
-  currentSubject,
-  allSubjects,
-  globalAverageCalculateFrom,
-} from "../var";
+import { allSubjects, globalAverageCalculateFrom } from "../var";
+import { currentSubject } from "./changeSubject";
 
 /**
  * @param {Element} gradeDiv
@@ -92,7 +89,7 @@ export function updateGlobalAverage() {
   let count = 0;
 
   if (
-    currentSubject === allSubjects.indexOf("epsic") ||
+    currentSubject === allSubjects.indexOf("modules epsic") ||
     currentSubject === allSubjects.indexOf("cie")
   )
     updateComputerScienceAverage();
@@ -117,7 +114,8 @@ function updateComputerScienceAverage() {
   // computer science average = 80% epsic + 20% cie
   const average = document.querySelector("#averages");
   const epsic =
-    average.children[allSubjects.indexOf("epsic")].lastElementChild.innerText;
+    average.children[allSubjects.indexOf("modules epsic")].lastElementChild
+      .innerText;
   const cie =
     average.children[allSubjects.indexOf("cie")].lastElementChild.innerText;
   const computerScience = average.children[allSubjects.indexOf("computer")];
@@ -142,10 +140,10 @@ function upgradePercent(percentArea, oldAverage, newAverage) {
   if (pomme > 0) {
     percentArea.innerText = `+${pomme}%`;
     percentArea.classList.remove("text-red-700");
-    percentArea.classList.add("text-green-600");
+    percentArea.classList.add("text-green-700");
   } else if (pomme < 0) {
     percentArea.innerText = `${pomme}%`;
-    percentArea.classList.remove("text-green-600");
+    percentArea.classList.remove("text-green-700");
     percentArea.classList.add("text-red-700");
   } else {
     percentArea.innerText = "";

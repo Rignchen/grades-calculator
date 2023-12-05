@@ -1,23 +1,24 @@
-export let currentSubject = 1;
 export const allSubjects = [
   "global",
   "math",
-  "society",
-  "english",
+  "société",
+  "anglais",
   "computer",
-  "epsic",
+  "modules epsic",
   "cie",
 ];
 export const globalAverageCalculateFrom = [
   "math",
-  "society",
-  "english",
+  "société",
+  "anglais",
   "computer",
 ];
 export const allSubjectsName = [
+  "Général",
   "Mathématiques",
   "Société",
   "Anglais",
+  "Informatique",
   "Modules EPSIC",
   "Modules CIE",
 ];

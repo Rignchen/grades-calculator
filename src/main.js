@@ -1,6 +1,9 @@
 import { addSemester } from "./script/addSemester";
 import { updateGlobalAverage } from "./script/updateAverage";
 import { focus } from "./lib";
+import { changeSubject } from "./script/changeSubject";
+import { allSubjects } from "./var";
+import { currentSubject } from "./script/changeSubject";
 
 addSemester();
 
@@ -10,6 +13,17 @@ document.querySelector("#newSemester").addEventListener("click", () => {
   focus();
   if (document.querySelector("#semesterList").childElementCount >= 8)
     document.querySelector("#newSemester").parentElement.remove();
+});
+
+document.querySelectorAll("header a").forEach((link) => {
+  link.addEventListener("click", () => {
+    const newSubject = Number(
+      allSubjects.indexOf(link.innerText.toLowerCase()),
+    );
+    if (newSubject !== currentSubject) {
+      changeSubject(newSubject);
+    }
+  });
 });
 
 updateGlobalAverage();
