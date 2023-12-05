@@ -9,10 +9,13 @@ addSemester();
 
 // Add a semester when the user clicks on a button
 document.querySelector("#newSemester").addEventListener("click", () => {
+  if (document.querySelector("#semesterList").childElementCount >= 8) return;
   addSemester();
   focus();
   if (document.querySelector("#semesterList").childElementCount >= 8)
-    document.querySelector("#newSemester").parentElement.remove();
+    document
+      .querySelector("#newSemester")
+      .parentElement.classList.add("hidden");
 });
 
 document.querySelectorAll("header a").forEach((link) => {

@@ -22,6 +22,11 @@ export function changeSubject(newSubject) {
   // set the value of the new subject
   currentSubject = newSubject;
 
+  // show the new subject button
+  document
+    .querySelector("#newSemester")
+    .parentElement.classList.remove("hidden");
+
   // set the new name
   document.querySelector("#subjectName").innerText =
     allSubjectsName[currentSubject];
