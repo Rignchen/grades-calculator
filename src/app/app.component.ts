@@ -12,5 +12,5 @@ import { SemesterComponent } from "./semester/semester.component";
 })
 export class AppComponent {
   title = 'grade-view';
-  semesters: Number[][] = [[1,2,3,4,5,6],[6,5,4,3,2,1]];
+  semesters: number[][] = [[1,2,3,4,5,6],[6,5,4,3,2,1]];
 }
