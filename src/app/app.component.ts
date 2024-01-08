@@ -7,10 +7,8 @@ import { SemesterComponent } from "./semester/semester.component";
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, SemesterComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'grade-view';
   semesters: number[][] = [[1,2,3,4,5,6],[6,5,4,3,2,1]];
 }

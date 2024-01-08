@@ -9,8 +9,7 @@ import {GradeComponent} from "../grade/grade.component";
     NgForOf,
     GradeComponent
   ],
-  templateUrl: './semester.component.html',
-  styleUrl: './semester.component.css'
+  templateUrl: './semester.component.html'
 })
 export class SemesterComponent {
   @Input() semester!: number[];

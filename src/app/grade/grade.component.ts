@@ -7,8 +7,7 @@ import {NgIf} from "@angular/common";
   imports: [
     NgIf
   ],
-  templateUrl: './grade.component.html',
-  styleUrl: './grade.component.css'
+  templateUrl: './grade.component.html'
 })
 export class GradeComponent {
   @Input() grade!: number;
