@@ -123,6 +123,7 @@
                 <div class="mt-6 border-t border-gray-100">
                   <dl class="divide-y divide-gray-100">
                     <div>
+                      <app-semester [semester]="semester" [semester-number]="index+1" *ngFor="let semester of semesters; let index = index"></app-semester>
                     </div>
                     <div class="px-4 py-6 sm:gap-4 sm:px-0">
                       <button
