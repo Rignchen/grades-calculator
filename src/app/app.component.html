@@ -125,10 +125,11 @@
                     <div>
                       <app-semester [semester]="semester" [semester-number]="index+1" *ngFor="let semester of semesters; let index = index"></app-semester>
                     </div>
-                    <div class="px-4 py-6 sm:gap-4 sm:px-0">
+                    <div class="px-4 py-6 sm:gap-4 sm:px-0" *ngIf="semesters.length < 8">
                       <button
                         class="relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-4 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         type="button" id="newSemester"
+                        (click)="semesters.push([])"
                       >
                         <svg
                           class="mx-auto h-8 w-8 text-gray-400"
