@@ -1,6 +1,7 @@
 import {Component, Input, signal} from '@angular/core';
 import {NgForOf} from "@angular/common";
 import {GradeComponent} from "../grade/grade.component";
+import {round} from "../../lib";
 
 @Component({
   selector: 'app-semester',
@@ -14,7 +15,13 @@ import {GradeComponent} from "../grade/grade.component";
 export class SemesterComponent {
   @Input() semester!: number[];
   @Input('semester-number') semesterNumber!: number;
+  sum: number = 0;
+
   addGrade() {
-    this.semester.push(4);
+    let grade = 4;
+    this.semester.push(grade);
+    this.sum += grade;
   }
+
+  protected readonly round = round;
 }
