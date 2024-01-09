@@ -3,6 +3,7 @@ import {NgForOf, NgIf} from "@angular/common";
 import {GradeComponent} from "../grade/grade.component";
 import {round} from "../../lib";
 import {FormsModule} from "@angular/forms";
+import {InputComponent} from "../input/input.component";
 
 @Component({
   selector: 'app-semester',
@@ -11,7 +12,8 @@ import {FormsModule} from "@angular/forms";
     NgForOf,
     GradeComponent,
     FormsModule,
-    NgIf
+    NgIf,
+    InputComponent
   ],
   templateUrl: './semester.component.html'
 })
@@ -24,13 +26,11 @@ export class SemesterComponent {
   newGrade!: number;
 
   addGrade(grade: number) {
-    if (grade >= 1 && grade <= 6 && grade % 0.5 === 0) {
-      this.semester.push(grade);
-      this.sum += grade;
-      const old_average = this.average;
-      this.average = round(this.sum / this.semester.length, 0.5);
-      this.averageChange.emit([old_average, this.average]);
-    }
+    this.semester.push(grade);
+    this.sum += grade;
+    const old_average = this.average;
+    this.average = round(this.sum / this.semester.length, 0.5);
+    this.averageChange.emit([old_average, this.average]);
   }
 
   protected readonly round = round;
