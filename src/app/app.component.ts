@@ -7,11 +7,12 @@ import {FormsModule} from "@angular/forms";
 import {getSubject, round} from "../lib";
 import {NavbarComponent} from "./navbar/navbar.component";
 import {allSubjects} from "../const";
+import {AverageListComponent} from "./average-list/average-list.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, SemesterComponent, GradeComponent, FormsModule, NavbarComponent],
+  imports: [CommonModule, RouterOutlet, SemesterComponent, GradeComponent, FormsModule, NavbarComponent, AverageListComponent],
   templateUrl: './app.component.html'
 })
 export class AppComponent {

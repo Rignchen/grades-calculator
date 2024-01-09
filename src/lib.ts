@@ -6,6 +6,5 @@ export function round(number: number, precision: number = 1) {
 }
 export function getSubject() {
   const url = window.location.href.split("/");
-  console.log(url[url.length - 1])
   return allSubjects.indexOf(url[url.length - 1]);
 }
