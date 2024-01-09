@@ -29,8 +29,7 @@ export class SemesterComponent {
       this.sum += grade;
       const old_average = this.average;
       this.average = round(this.sum / this.semester.length, 0.5);
-      if (old_average !== this.average)
-        this.averageChange.emit([old_average, this.average]);
+      this.averageChange.emit([old_average, this.average]);
     }
   }
 
