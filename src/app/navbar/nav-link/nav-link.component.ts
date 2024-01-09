@@ -8,10 +8,10 @@ import {Component, Input} from '@angular/core';
 })
 export class NavLinkComponent {
   @Input() subject!: string;
-  @Input() current: boolean = false;
+  @Input() isCurrent: boolean = false;
   style() {
     let defaultStyle = "rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm hover:bg-opacity-10"
-    if (this.current) {
+    if (this.isCurrent) {
       defaultStyle += " text-white font-bold"
     }
     else {

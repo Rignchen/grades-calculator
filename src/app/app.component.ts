@@ -6,6 +6,7 @@ import {GradeComponent} from "./grade/grade.component";
 import {FormsModule} from "@angular/forms";
 import {round} from "../lib";
 import {NavbarComponent} from "./navbar/navbar.component";
+import {allSubjects} from "../const";
 
 @Component({
   selector: 'app-root',
@@ -14,4 +15,5 @@ import {NavbarComponent} from "./navbar/navbar.component";
   templateUrl: './app.component.html'
 })
 export class AppComponent {
+  currentSubject: number = allSubjects.indexOf("math");
 }
