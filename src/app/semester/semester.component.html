@@ -4,7 +4,7 @@
   </dt>
   <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-4 sm:mt-0 flex justify-between">
     <div class="flex flex-row flex-nowrap overflow-y-scroll gap-x-1.5">
-      <app-grade [grade]="grade" *ngFor="let grade of semester"></app-grade>
+      <app-grade [grade]="grade" *ngFor="let grade of semester" look="px-2 py-2 text-sm font-medium ring-gray-200"></app-grade>
     </div>
     <div class="flex add-grade">
       <div>
@@ -19,7 +19,7 @@
           </button>
         </div>
       </div>
-      <app-grade [grade]="average" class="ml-1" *ngIf="sum != 0"></app-grade>
+      <app-grade [grade]="average" class="ml-1" *ngIf="sum != 0" look="ml-1 font-bold ring-gray-300 px-2 py-2 text-sm"></app-grade>
     </div>
   </dd>
 </div>

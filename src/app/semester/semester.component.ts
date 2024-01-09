@@ -34,4 +34,6 @@ export class SemesterComponent {
   }
 
   protected readonly round = round;
+  protected readonly blur = blur;
+  protected readonly console = console;
 }
