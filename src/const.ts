@@ -4,6 +4,15 @@ export const allSubjects = [
   "societe",
   "anglais",
   "computer",
-  "modules epsic",
+  "epsic",
   "cie",
+];
+export const allSubjectsName = [
+  "General",
+  "Mathematiques",
+  "Societe",
+  "Anglais",
+  "Informatique",
+  "Modules EPSIC",
+  "Modules CIE",
 ];

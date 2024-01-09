@@ -1,10 +1,10 @@
-import {Component, signal} from '@angular/core';
+import {Component, Input, signal} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { SemesterComponent } from "./semester/semester.component";
 import {GradeComponent} from "./grade/grade.component";
 import {FormsModule} from "@angular/forms";
-import {round} from "../lib";
+import {getSubject, round} from "../lib";
 import {NavbarComponent} from "./navbar/navbar.component";
 import {allSubjects} from "../const";
 
@@ -15,5 +15,12 @@ import {allSubjects} from "../const";
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  currentSubject: number = allSubjects.indexOf("math");
+  currentSubject: number = 0;
+
+  init() {
+    // get the parameter from the url
+    this.currentSubject = getSubject();
+    // return an empty string so it won't display anything
+    return ""
+  }
 }
