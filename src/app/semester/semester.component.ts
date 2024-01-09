@@ -1,5 +1,5 @@
-import {Component, Input, signal} from '@angular/core';
-import {NgForOf} from "@angular/common";
+import {Component, EventEmitter, Input, Output, signal} from '@angular/core';
+import {NgForOf, NgIf} from "@angular/common";
 import {GradeComponent} from "../grade/grade.component";
 import {round} from "../../lib";
 import {FormsModule} from "@angular/forms";
@@ -10,20 +10,27 @@ import {FormsModule} from "@angular/forms";
   imports: [
     NgForOf,
     GradeComponent,
-    FormsModule
+    FormsModule,
+    NgIf
   ],
   templateUrl: './semester.component.html'
 })
 export class SemesterComponent {
   @Input() semester!: number[];
   @Input('semester-number') semesterNumber!: number;
-  sum: number = 1 + 2 + 3 + 4 + 5 + 6;
+  @Output() averageChange = new EventEmitter<number[]>();
+  average = 0;
+  sum: number = 0;
   newGrade!: number;
 
   addGrade(grade: number) {
     if (grade >= 1 && grade <= 6 && grade % 0.5 === 0) {
       this.semester.push(grade);
       this.sum += grade;
+      const old_average = this.average;
+      this.average = round(this.sum / this.semester.length, 0.5);
+      if (old_average !== this.average)
+        this.averageChange.emit([old_average, this.average]);
     }
   }
 

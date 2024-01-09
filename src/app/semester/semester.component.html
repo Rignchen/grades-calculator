@@ -19,7 +19,7 @@
           </button>
         </div>
       </div>
-      <app-grade [grade]="round(sum / semester.length, 0.5)" class="ml-1"></app-grade>
+      <app-grade [grade]="average" class="ml-1" *ngIf="sum != 0"></app-grade>
     </div>
   </dd>
 </div>
