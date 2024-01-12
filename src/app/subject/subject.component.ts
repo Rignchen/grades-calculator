@@ -1,9 +1,10 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {GradeComponent} from "../grade/grade.component";
 import {NgForOf, NgIf} from "@angular/common";
 import {SemesterComponent} from "../semester/semester.component";
-import {getSubject, round} from "../../lib";
-import {allSubjectsName} from "../../const";
+import {round} from "../../lib";
+import {allSubjects, allSubjectsName} from "../../const";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-subject',
@@ -23,9 +24,12 @@ export class SubjectComponent {
   upgrade = 0;
   subjectNumber = 0;
 
+  private route = inject(ActivatedRoute);
+
   init() {
     // get the parameter from the url
-    this.subjectNumber = getSubject();
+    const semesterName = this.route.snapshot.paramMap.get('subject')
+    if (semesterName) this.subjectNumber = allSubjects.indexOf(semesterName);
     // return an empty string so it won't display anything
     return ""
   }
