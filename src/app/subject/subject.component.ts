@@ -1,8 +1,8 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {GradeComponent} from "../grade/grade.component";
 import {NgForOf, NgIf} from "@angular/common";
 import {SemesterComponent} from "../semester/semester.component";
-import {round} from "../../lib";
+import {getSubject, round} from "../../lib";
 import {allSubjects, allSubjectsName} from "../../const";
 import {ActivatedRoute} from "@angular/router";
 
@@ -17,7 +17,7 @@ import {ActivatedRoute} from "@angular/router";
   ],
   templateUrl: './subject.component.html'
 })
-export class SubjectComponent {
+export class SubjectComponent implements OnInit{
   semesters: number[][] = [[]];
   sum = 0;
   average = 0;
@@ -26,12 +26,9 @@ export class SubjectComponent {
 
   private route = inject(ActivatedRoute);
 
-  init() {
-    // get the parameter from the url
-    const semesterName = this.route.snapshot.paramMap.get('subject')
+  ngOnInit() {
+    const semesterName = this.route.snapshot.paramMap.get('subject') // get the parameter from the url
     if (semesterName) this.subjectNumber = allSubjects.indexOf(semesterName);
-    // return an empty string so it won't display anything
-    return ""
   }
 
   updateAverage($event: number[]) {
