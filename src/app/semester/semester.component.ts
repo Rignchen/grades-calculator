@@ -32,8 +32,4 @@ export class SemesterComponent {
     this.average = round(this.sum / this.semester.length, 0.5);
     this.averageChange.emit([old_average, this.average]);
   }
-
-  protected readonly round = round;
-  protected readonly blur = blur;
-  protected readonly console = console;
 }

@@ -2,7 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import {GradeComponent} from "../grade/grade.component";
 import {NgForOf, NgIf} from "@angular/common";
 import {SemesterComponent} from "../semester/semester.component";
-import {getSubject, round} from "../../lib";
+import {round} from "../../lib";
 import {allSubjects, allSubjectsName} from "../../const";
 import {ActivatedRoute} from "@angular/router";
 
