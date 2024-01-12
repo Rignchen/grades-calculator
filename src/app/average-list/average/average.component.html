@@ -1,0 +1,16 @@
+<div class="flex flex-wrap items-baseline justify-between gap-x-2 gap-y-2 bg-white px-6 py-6">
+  <dt class="text-sm font-medium leading-6 text-gray-500">
+    {{ name }}
+  </dt>
+  <dd [class]="class" *ngIf="has_changed">
+    <span *ngIf="upgrade >= 0;else downgrade">+</span>
+    {{ round(abs(upgrade) * 100, 0.01) }}%
+  </dd>
+  <dd class="w-full flex-none text-3xl font-bold leading-10 tracking-tight text-gray-900">
+    {{ value }}
+  </dd>
+</div>
+
+<ng-template #downgrade>
+  <span>-</span>
+</ng-template>
