@@ -13,7 +13,7 @@ import {round} from "../../../lib";
 export class AverageComponent implements OnChanges {
   @Input() name!: string;
   @Input() value!: number;
-  old_value: number = 4;
+  old_value: number = 0;
   upgrade: number = 0;
   has_changed: boolean = false;
 

@@ -15,4 +15,21 @@ import {AverageListComponent} from "./average-list/average-list.component";
 })
 export class AppComponent {
   currentSubject: number = 0;
+  subjects= new allSubject();
+}
+
+export class allSubject {
+  maths = new Subject();
+  societe = new Subject();
+  anglais = new Subject();
+  epsic = new Subject();
+  cie = new Subject();
+  tpi: number = 0;
+}
+class Subject {
+  semesters: number[][] = [[]]
+  average!: number
+  constructor(average: number = 0) {
+    this.average = average
+  }
 }
