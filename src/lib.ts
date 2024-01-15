@@ -26,3 +26,6 @@ export function weightedAverage(values: number[]|[number,number][], ignore_zero:
   if (weight === 0) return sum
   return sum / weight
 }
+export function last(array: any[]) {
+  return array[array.length - 1]
+}
