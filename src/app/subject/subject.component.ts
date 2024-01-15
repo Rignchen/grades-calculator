@@ -1,11 +1,11 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject, Input, OnInit} from '@angular/core';
 import {GradeComponent} from "./grade/grade.component";
 import {NgForOf, NgIf} from "@angular/common";
 import {SemesterComponent} from "./semester/semester.component";
 import {round} from "../../lib";
 import {allSubjects, allSubjectsName} from "../../const";
 import {ActivatedRoute} from "@angular/router";
-import {GradeListService} from "../grade-list.service";
+import {Subject} from "../grade-list.service";
 
 @Component({
   selector: 'app-subject',
@@ -18,19 +18,12 @@ import {GradeListService} from "../grade-list.service";
   ],
   templateUrl: './subject.component.html'
 })
-export class SubjectComponent implements OnInit{
-  subject = GradeListService.subjects.math;
+export class SubjectComponent{
+  @Input() subject!: Subject;
+  @Input() subjectNumber!: number;
 
   sum = 0;
   upgrade = 0;
-  subjectNumber!: number;
-
-  private route = inject(ActivatedRoute);
-
-  ngOnInit() {
-    const semesterName = this.route.snapshot.paramMap.get('subject') // get the parameter from the url
-    if (semesterName) this.subjectNumber = allSubjects.indexOf(semesterName);
-  }
 
   updateAverage($event: number[]) {
     this.sum -= $event[0];

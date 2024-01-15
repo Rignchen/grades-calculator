@@ -8,7 +8,7 @@ export class allSubject {
   cie = new Subject();
   tpi: number = 0;
 }
-class Subject {
+export class Subject {
   semesters: number[][] = [[]]
   average: number = 0;
 }
