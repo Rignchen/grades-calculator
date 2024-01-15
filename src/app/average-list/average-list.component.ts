@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AverageComponent} from "./average/average.component";
-import {allSubject} from "../app.component";
 import {round, weightedAverage} from "../../lib";
+import {allSubject} from "../grade-list.service";
 
 @Component({
   selector: 'app-average-list',
@@ -30,7 +30,7 @@ class Averages {
       [subjects.cie.average, 1]
     ]),0.1);
     this.competence = round(weightedAverage([
-      subjects.maths.average,
+      subjects.math.average,
       subjects.anglais.average,
     ]),0.5);
     this.global = round(weightedAverage([
