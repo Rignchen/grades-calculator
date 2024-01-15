@@ -1,9 +1,9 @@
-import {Component, EventEmitter, Input, Output, signal} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
 import {GradeComponent} from "../grade/grade.component";
-import {round} from "../../lib";
+import {round} from "../../../lib";
 import {FormsModule} from "@angular/forms";
-import {InputComponent} from "../input/input.component";
+import {InputComponent} from "./input/input.component";
 
 @Component({
   selector: 'app-semester',
