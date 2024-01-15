@@ -11,11 +11,12 @@ import {FormsModule} from "@angular/forms";
 })
 export class InputComponent {
   @Output() gradeChange = new EventEmitter<number>();
-  newGrade!: number;
+  newGrade!: number|null;
 
-  addGrade(grade: number) {
-    if (grade >= 1 && grade <= 6 && grade % 0.5 === 0) {
-      this.gradeChange.emit(grade);
+  addGrade() {
+    if (this.newGrade && this.newGrade >= 1 && this.newGrade <= 6 && this.newGrade % 0.5 === 0) {
+      this.gradeChange.emit(this.newGrade);
+      this.newGrade = null;
     }
   }
 }
