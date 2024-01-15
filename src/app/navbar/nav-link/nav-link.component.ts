@@ -1,10 +1,13 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {last} from "../../../lib";
+import {RouterLink} from "@angular/router";
 
 @Component({
     selector: 'app-nav-link',
     standalone: true,
-    imports: [],
+  imports: [
+    RouterLink
+  ],
     templateUrl: './nav-link.component.html'
 })
 export class NavLinkComponent implements OnInit {
