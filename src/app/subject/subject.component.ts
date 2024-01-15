@@ -5,6 +5,7 @@ import {SemesterComponent} from "./semester/semester.component";
 import {round} from "../../lib";
 import {allSubjects, allSubjectsName} from "../../const";
 import {ActivatedRoute} from "@angular/router";
+import {GradeListService} from "../grade-list.service";
 
 @Component({
   selector: 'app-subject',
@@ -18,11 +19,11 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './subject.component.html'
 })
 export class SubjectComponent implements OnInit{
-  semesters: number[][] = [[]];
+  subject = GradeListService.subjects.math;
+
   sum = 0;
-  average = 0;
   upgrade = 0;
-  subjectNumber = 0;
+  subjectNumber!: number;
 
   private route = inject(ActivatedRoute);
 
@@ -34,9 +35,9 @@ export class SubjectComponent implements OnInit{
   updateAverage($event: number[]) {
     this.sum -= $event[0];
     this.sum += $event[1];
-    const old_average = this.average;
-    this.average = round(this.sum / this.semesters.filter(a => a.length > 0).length, 0.5)
-    this.upgrade = round((this.average - old_average)*100);
+    const old_average = this.subject.average;
+    this.subject.average = round(this.sum / this.subject.semesters.filter(a => a.length > 0).length, 0.5)
+    this.upgrade = round((this.subject.average - old_average)*100);
   }
 
   subjectName() {

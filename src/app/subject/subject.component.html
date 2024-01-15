@@ -7,19 +7,19 @@
     </h2>
   </div>
   <div class="mt-4 flex md:ml-4 md:mt-0" id="currentAverage">
-    <app-grade [grade]="average" *ngIf="average != 0" look="px-3 py-1 text-lg font-bold ring-gray-200"></app-grade>
+    <app-grade [grade]="subject.average" *ngIf="subject.average != 0" look="px-3 py-1 text-lg font-bold ring-gray-200"></app-grade>
   </div>
 </div>
 
 <div class="mt-6 border-t border-gray-100">
   <dl class="divide-y divide-gray-100">
     <div>
-      <app-semester [semester]="semester" [semester-number]="index+1" *ngFor="let semester of semesters; let index = index" (averageChange)="updateAverage($event)"></app-semester>
+      <app-semester [semester]="semester" [semester-number]="index+1" *ngFor="let semester of subject.semesters; let index = index" (averageChange)="updateAverage($event)"></app-semester>
     </div>
-    <div class="px-4 py-6 sm:gap-4 sm:px-0" *ngIf="semesters.length < 8">
+    <div class="px-4 py-6 sm:gap-4 sm:px-0" *ngIf="subject.semesters.length < 8">
       <button
         class="relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-4 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-        type="button" id="newSemester" (click)="semesters.push([])">
+        type="button" id="newSemester" (click)="subject.semesters.push([])">
         <svg class="mx-auto h-8 w-8 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.5"
         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path
