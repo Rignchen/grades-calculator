@@ -18,22 +18,33 @@ import {Subject} from "../grade-list.service";
   ],
   templateUrl: './subject.component.html'
 })
-export class SubjectComponent{
+export class SubjectComponent implements OnInit{
   @Input() subject!: Subject;
   @Input() subjectNumber!: number;
 
-  sum = 0;
+  sum!: number;
+  subjectName!: string;
+
   upgrade = 0;
 
   updateAverage($event: number[]) {
     this.sum -= $event[0];
     this.sum += $event[1];
     const old_average = this.subject.average;
-    this.subject.average = round(this.sum / this.subject.semesters.filter(a => a.length > 0).length, 0.5)
+    this.subject.average = round(this.sum / this.subject.semesters.filter(a => a.length > 0).length, 0.1)
     this.upgrade = round((this.subject.average - old_average)*100);
   }
 
-  subjectName() {
-    return allSubjectsName[this.subjectNumber];
+  ngOnInit() {
+    this.subjectName = allSubjectsName[this.subjectNumber];
+
+    this.sum = 0;
+    this.subject.semesters.forEach((semester) => {
+      if (semester.length === 0) return;
+
+      let sum = 0;
+      semester.forEach((grade) => sum += grade);
+      this.sum += round(sum / semester.length,0.5);
+    });
   }
 }

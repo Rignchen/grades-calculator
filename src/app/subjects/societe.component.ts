@@ -3,6 +3,7 @@ import {SubjectComponent} from "../subject/subject.component";
 import {GradeListService} from "../grade-list.service";
 
 @Component({
+  selector: 'app-societe',
   standalone: true,
   imports: [
     SubjectComponent

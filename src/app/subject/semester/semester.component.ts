@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
 import {GradeComponent} from "../grade/grade.component";
 import {round} from "../../../lib";
@@ -17,13 +17,19 @@ import {InputComponent} from "./input/input.component";
   ],
   templateUrl: './semester.component.html'
 })
-export class SemesterComponent {
+export class SemesterComponent implements OnInit {
   @Input() semester!: number[];
   @Input('semester-number') semesterNumber!: number;
   @Output() averageChange = new EventEmitter<number[]>();
   average = 0;
   sum: number = 0;
-  newGrade!: number;
+
+  ngOnInit() {
+    if (this.semester.length > 0) {
+      this.semester.forEach((grade) => this.sum += grade);
+      this.average = round(this.sum / this.semester.length, 0.5);
+    }
+  }
 
   addGrade(grade: number) {
     this.semester.push(grade);
