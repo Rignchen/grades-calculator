@@ -25,7 +25,6 @@ export class SemesterComponent implements OnInit {
 
   ngOnInit() {
     this.semester.average = computed(() => {
-      console.log("average");
       const semesterGrades = this.semester.grades();
       if (semesterGrades.length == 0) return 0;
       let sum = 0;

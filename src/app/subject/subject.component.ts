@@ -1,10 +1,9 @@
-import {Component, computed, inject, Input, OnInit, signal} from '@angular/core';
+import {Component, Input, OnInit, signal} from '@angular/core';
 import {GradeComponent} from "./grade/grade.component";
 import {NgForOf, NgIf} from "@angular/common";
 import {SemesterComponent} from "./semester/semester.component";
 import {round} from "../../lib";
-import {allSubjects, allSubjectsName} from "../../const";
-import {ActivatedRoute} from "@angular/router";
+import {allSubjectsName} from "../../const";
 import {Subject} from "../grade-list.service";
 import {AddSemesterComponent} from "./add-semester/add-semester.component";
 
@@ -39,7 +38,9 @@ export class SubjectComponent implements OnInit{
 
   ngOnInit() {
     this.subject.average.update(() => {
-        return round(this.sum / this.subject.semesters.filter(a => a.grades().length > 0).length, 0.1)
+        const subjectLengt = this.subject.semesters.filter(a => a.grades().length > 0).length;
+        if (subjectLengt === 0) return 0;
+        return round(this.sum / subjectLengt, 0.1)
       }
     )
 
