@@ -1,4 +1,4 @@
-import {Component, inject, Input, OnInit} from '@angular/core';
+import {Component, inject, Input, OnInit, signal} from '@angular/core';
 import {GradeComponent} from "./grade/grade.component";
 import {NgForOf, NgIf} from "@angular/common";
 import {SemesterComponent} from "./semester/semester.component";
@@ -40,11 +40,14 @@ export class SubjectComponent implements OnInit{
 
     this.sum = 0;
     this.subject.semesters.forEach((semester) => {
-      if (semester.length === 0) return;
+      const semesterGrades = semester();
+      if (semesterGrades.length === 0) return;
 
       let sum = 0;
-      semester.forEach((grade) => sum += grade);
-      this.sum += round(sum / semester.length,0.5);
+      semesterGrades.forEach((grade) => sum += grade);
+      this.sum += round(sum / semesterGrades.length,0.5);
     });
   }
+
+  protected readonly signal = signal;
 }

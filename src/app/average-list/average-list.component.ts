@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {AverageComponent} from "./average/average.component";
 import {round, weightedAverage} from "../../lib";
 import {allSubject} from "../grade-list.service";
@@ -14,17 +14,17 @@ import {allSubject} from "../grade-list.service";
 export class AverageListComponent implements OnInit {
   @Input() subjects!: allSubject;
   averages!: Averages;
-
   ngOnInit() {
-    this.averages = new Averages(this.subjects);
+    this.averages = new Averages();
+    this.averages.update(this.subjects);
   }
 }
 
 class Averages {
-  global!: number;
-  competence!: number;
-  computer!: number;
-  constructor(subjects: allSubject) {
+  global: number = 0;
+  competence: number = 0;
+  computer: number = 0;
+  update(subjects: allSubject) {
     this.computer = round(weightedAverage([
       [subjects.epsic.average, 4],
       [subjects.cie.average, 1]

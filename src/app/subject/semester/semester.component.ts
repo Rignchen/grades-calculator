@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, computed, EventEmitter, Input, OnInit, Output, Signal, WritableSignal} from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
 import {GradeComponent} from "../grade/grade.component";
 import {round} from "../../../lib";
@@ -18,24 +18,26 @@ import {InputComponent} from "./input/input.component";
   templateUrl: './semester.component.html'
 })
 export class SemesterComponent implements OnInit {
-  @Input() semester!: number[];
+  @Input() semester!: WritableSignal<number[]>;
   @Input('semester-number') semesterNumber!: number;
   @Output() averageChange = new EventEmitter<number[]>();
-  average = 0;
-  sum: number = 0;
+  average!: Signal<number>;
 
   ngOnInit() {
-    if (this.semester.length > 0) {
-      this.semester.forEach((grade) => this.sum += grade);
-      this.average = round(this.sum / this.semester.length, 0.5);
-    }
+    this.average = computed(() => {
+      console.log("average");
+      const semesterGrades = this.semester();
+      if (semesterGrades.length == 0) return 0;
+      let sum = 0;
+      semesterGrades.forEach((grade) => sum += grade);
+      return round(sum / semesterGrades.length, 0.5);
+    });
   }
 
   addGrade(grade: number) {
-    this.semester.push(grade);
-    this.sum += grade;
-    const old_average = this.average;
-    this.average = round(this.sum / this.semester.length, 0.5);
-    this.averageChange.emit([old_average, this.average]);
+    this.semester.update((grades) => {
+      grades = [...grades, grade];
+      return grades;
+    });
   }
 }

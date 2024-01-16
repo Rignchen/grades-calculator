@@ -1,6 +1,6 @@
 <div class="min-h-full">
   <header class="bg-sky-600 pb-24">
-    <app-navbar [currentSubject]="currentSubject"></app-navbar>
+    <app-navbar [currentSubject]="currentSubject"/>
   </header>
   <main class="-mt-24 pb-8">
     <div class="container mx-auto sm:px-6 lg:px-8">
@@ -13,13 +13,13 @@
             <h2 class="sr-only" id="section-1-title">Grades</h2>
             <div class="overflow-hidden rounded-lg bg-white shadow">
               <div class="p-6">
-                <router-outlet></router-outlet>
+                <router-outlet/>
               </div>
             </div>
           </section>
         </div>
         <!-- Right column -->
-        <app-average-list [subjects]="subjects"></app-average-list>
+        <app-average-list [subjects]="subjects"/>
       </div>
     </div>
   </main>
