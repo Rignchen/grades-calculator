@@ -4,6 +4,7 @@ import {GradeComponent} from "../grade/grade.component";
 import {round} from "../../../lib";
 import {FormsModule} from "@angular/forms";
 import {InputComponent} from "./input/input.component";
+import {Semester} from "../../grade-list.service";
 
 @Component({
   selector: 'app-semester',
@@ -18,15 +19,14 @@ import {InputComponent} from "./input/input.component";
   templateUrl: './semester.component.html'
 })
 export class SemesterComponent implements OnInit {
-  @Input() semester!: WritableSignal<number[]>;
+  @Input() semester!: Semester;
   @Input('semester-number') semesterNumber!: number;
   @Output() averageChange = new EventEmitter<number[]>();
-  average!: Signal<number>;
 
   ngOnInit() {
-    this.average = computed(() => {
+    this.semester.average = computed(() => {
       console.log("average");
-      const semesterGrades = this.semester();
+      const semesterGrades = this.semester.grades();
       if (semesterGrades.length == 0) return 0;
       let sum = 0;
       semesterGrades.forEach((grade) => sum += grade);
@@ -35,7 +35,7 @@ export class SemesterComponent implements OnInit {
   }
 
   addGrade(grade: number) {
-    this.semester.update((grades) => {
+    this.semester.grades.update((grades) => {
       grades = [...grades, grade];
       return grades;
     });

@@ -1,7 +1,5 @@
 export function round(number: number, precision: number = 1) {
-  console.log("round", number, precision)
   precision = 1 / precision
-  console.log(Math.round(number * precision) / precision)
   return Math.round(number * precision) / precision
 }
 

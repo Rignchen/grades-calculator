@@ -6,15 +6,15 @@
         <app-average [name]="'Moyenne générale'" [value]="averages.global" class="col-span-2"></app-average>
 
         <app-average [name]="'TPI'" [value]="subjects.tpi"></app-average>
-        <app-average [name]="'Société'" [value]="subjects.societe.average"></app-average>
+        <app-average [name]="'Société'" [value]="subjects.societe.average()"></app-average>
 
         <app-average [name]="'Compétences de bases élargies'" [value]="averages.competence" class="col-span-2"></app-average>
-        <app-average [name]="'Maths'" [value]="subjects.math.average"></app-average>
-        <app-average [name]="'Anglais'" [value]="subjects.anglais.average"></app-average>
+        <app-average [name]="'Maths'" [value]="subjects.math.average()"></app-average>
+        <app-average [name]="'Anglais'" [value]="subjects.anglais.average()"></app-average>
 
         <app-average [name]="'Informatique'" [value]="averages.computer" class="col-span-2"></app-average>
-        <app-average [name]="'Modules EPSIC'" [value]="subjects.epsic.average"></app-average>
-        <app-average [name]="'Modules CIE'" [value]="subjects.cie.average"></app-average>
+        <app-average [name]="'Modules EPSIC'" [value]="subjects.epsic.average()"></app-average>
+        <app-average [name]="'Modules CIE'" [value]="subjects.cie.average()"></app-average>
       </dl>
     </div>
   </section>

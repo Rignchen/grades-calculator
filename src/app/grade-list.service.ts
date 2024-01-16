@@ -1,4 +1,4 @@
-import {Injectable, signal, WritableSignal} from '@angular/core';
+import {Injectable, Signal, signal, WritableSignal} from '@angular/core';
 
 export class allSubject {
   math = new Subject();
@@ -9,11 +9,15 @@ export class allSubject {
   tpi: number = 0;
 }
 export class Subject {
-  semesters: WritableSignal<number[]>[] = [signal<number[]>([])]
-  average: number = 0;
+  semesters: Semester[] = [new Semester()];
+  average: WritableSignal<number> = signal(0);
   constructor(number: number = 0) {
-    this.average = number;
+    this.average = signal(number);
   }
+}
+export class Semester {
+  grades = signal<number[]>([]);
+  average: Signal<number> = signal(0);
 }
 
 @Injectable({

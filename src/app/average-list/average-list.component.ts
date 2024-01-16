@@ -26,18 +26,18 @@ class Averages {
   computer: number = 0;
   update(subjects: allSubject) {
     this.computer = round(weightedAverage([
-      [subjects.epsic.average, 4],
-      [subjects.cie.average, 1]
+      [subjects.epsic.average(), 4],
+      [subjects.cie.average(), 1]
     ]),0.1);
     this.competence = round(weightedAverage([
-      subjects.math.average,
-      subjects.anglais.average,
+      subjects.math.average(),
+      subjects.anglais.average(),
     ]),0.5);
     this.global = round(weightedAverage([
       [subjects.tpi, 4],
       [this.computer, 3],
       [this.competence, 1],
-      [subjects.societe.average, 2]
+      [subjects.societe.average(), 2]
     ]), 0.1);
   }
 }

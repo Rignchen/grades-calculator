@@ -1,5 +1,5 @@
-import {Component, CreateSignalOptions, Input, signal, WritableSignal} from '@angular/core';
-import {Subject} from "../../grade-list.service";
+import {Component, Input, signal} from '@angular/core';
+import {Semester, Subject} from "../../grade-list.service";
 
 @Component({
   selector: 'app-add-semester',
@@ -8,6 +8,9 @@ import {Subject} from "../../grade-list.service";
   templateUrl: './add-semester.component.html'
 })
 export class AddSemesterComponent {
+  newSemester() {
+    return new Semester();
+  }
 
   @Input() subject!: Subject;
   protected readonly signal = signal;

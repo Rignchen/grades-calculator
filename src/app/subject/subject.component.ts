@@ -1,4 +1,4 @@
-import {Component, inject, Input, OnInit, signal} from '@angular/core';
+import {Component, computed, inject, Input, OnInit, signal} from '@angular/core';
 import {GradeComponent} from "./grade/grade.component";
 import {NgForOf, NgIf} from "@angular/common";
 import {SemesterComponent} from "./semester/semester.component";
@@ -24,7 +24,7 @@ export class SubjectComponent implements OnInit{
   @Input() subject!: Subject;
   @Input() subjectNumber!: number;
 
-  sum!: number;
+  sum: number = 0;
   subjectName!: string;
 
   upgrade = 0;
@@ -32,22 +32,26 @@ export class SubjectComponent implements OnInit{
   updateAverage($event: number[]) {
     this.sum -= $event[0];
     this.sum += $event[1];
-    const old_average = this.subject.average;
-    this.subject.average = round(this.sum / this.subject.semesters.filter(a => a.length > 0).length, 0.1)
-    this.upgrade = round((this.subject.average - old_average)*100);
+    const old_average = this.subject.average();
+    this.subject.average.update(() => round(this.sum / this.subject.semesters.filter(a => a.grades().length > 0).length, 0.1));
+    this.upgrade = round((this.subject.average() - old_average)*100);
   }
 
   ngOnInit() {
+    this.subject.average.update(() => {
+        return round(this.sum / this.subject.semesters.filter(a => a.grades().length > 0).length, 0.1)
+      }
+    )
+
     this.subjectName = allSubjectsName[this.subjectNumber];
 
-    this.sum = 0;
     this.subject.semesters.forEach((semester) => {
-      const semesterGrades = semester();
+      const semesterGrades = semester.grades();
       if (semesterGrades.length === 0) return;
 
       let sum = 0;
       semesterGrades.forEach((grade) => sum += grade);
-      this.sum += round(sum / semesterGrades.length,0.5);
+      this.sum += semester.average();
     });
   }
 
