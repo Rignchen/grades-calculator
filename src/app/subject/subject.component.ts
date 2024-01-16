@@ -37,13 +37,6 @@ export class SubjectComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.subject.average.update(() => {
-        const subjectLengt = this.subject.semesters.filter(a => a.grades().length > 0).length;
-        if (subjectLengt === 0) return 0;
-        return round(this.sum / subjectLengt, 0.1)
-      }
-    )
-
     this.subjectName = allSubjectsName[this.subjectNumber];
 
     this.subject.semesters.forEach((semester) => {
@@ -52,8 +45,15 @@ export class SubjectComponent implements OnInit{
 
       let sum = 0;
       semesterGrades.forEach((grade) => sum += grade);
-      this.sum += semester.average();
+      this.sum += sum;
     });
+
+    this.subject.average.update(() => {
+        const subjectLengt = this.subject.semesters.filter(sem => sem.grades().length > 0).length;
+        if (subjectLengt === 0) return 0;
+        return round(this.sum / subjectLengt, 0.1)
+      }
+    )
   }
 
   protected readonly signal = signal;
