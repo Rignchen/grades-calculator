@@ -2,7 +2,7 @@ import {Component, Input, OnInit, signal} from '@angular/core';
 import {GradeComponent} from "./grade/grade.component";
 import {NgForOf, NgIf} from "@angular/common";
 import {SemesterComponent} from "./semester/semester.component";
-import {round} from "../../lib";
+import {average, round} from "../../lib";
 import {allSubjectsName} from "../../const";
 import {Subject} from "../grade-list.service";
 import {AddSemesterComponent} from "./add-semester/add-semester.component";
@@ -47,13 +47,6 @@ export class SubjectComponent implements OnInit{
       semesterGrades.forEach((grade) => sum += grade);
       this.sum += sum;
     });
-
-    this.subject.average.update(() => {
-        const subjectLengt = this.subject.semesters.filter(sem => sem.grades().length > 0).length;
-        if (subjectLengt === 0) return 0;
-        return round(this.sum / subjectLengt, 0.1)
-      }
-    )
   }
 
   protected readonly signal = signal;

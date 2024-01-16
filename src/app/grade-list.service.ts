@@ -1,4 +1,5 @@
 import {Injectable, Signal, signal, WritableSignal} from '@angular/core';
+import {average} from "../lib";
 
 export class allSubject {
   math = new Subject(8);
@@ -11,18 +12,20 @@ export class allSubject {
 export class Subject {
   semesterAmount!: number;
   semesters!: Semester[];
-  average: WritableSignal<number> = signal(0);
+  average!: WritableSignal<number>;
   constructor(semesterAmount: number, array: number[] = []) {
     this.semesterAmount = semesterAmount;
     this.semesters = [new Semester(array)];
+    this.average = signal(average(this.semesters.map(a => a.average())));
   }
 }
 export class Semester {
   grades!: WritableSignal<number[]>;
-  average: Signal<number> = signal(0);
+  average!: Signal<number>;
 
   constructor(array: number[] = []) {
     this.grades = signal(array);
+    this.average = signal(average(this.grades()));
   }
 }
 
