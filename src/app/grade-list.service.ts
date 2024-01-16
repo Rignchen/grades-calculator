@@ -1,23 +1,29 @@
 import {Injectable, Signal, signal, WritableSignal} from '@angular/core';
 
 export class allSubject {
-  math = new Subject();
-  societe = new Subject();
-  anglais = new Subject();
-  epsic = new Subject();
-  cie = new Subject(5);
+  math = new Subject(8);
+  societe = new Subject(8);
+  anglais = new Subject(8);
+  epsic = new Subject(8);
+  cie = new Subject(8,[5]);
   tpi: number = 0;
 }
 export class Subject {
-  semesters: Semester[] = [new Semester()];
+  semesterAmount!: number;
+  semesters!: Semester[];
   average: WritableSignal<number> = signal(0);
-  constructor(number: number = 0) {
-    this.average = signal(number);
+  constructor(semesterAmount: number, array: number[] = []) {
+    this.semesterAmount = semesterAmount;
+    this.semesters = [new Semester(array)];
   }
 }
 export class Semester {
-  grades = signal<number[]>([]);
+  grades!: WritableSignal<number[]>;
   average: Signal<number> = signal(0);
+
+  constructor(array: number[] = []) {
+    this.grades = signal(array);
+  }
 }
 
 @Injectable({
