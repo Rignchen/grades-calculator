@@ -6,6 +6,7 @@ import {round} from "../../lib";
 import {allSubjects, allSubjectsName} from "../../const";
 import {ActivatedRoute} from "@angular/router";
 import {Subject} from "../grade-list.service";
+import {AddSemesterComponent} from "./add-semester/add-semester.component";
 
 @Component({
   selector: 'app-subject',
@@ -14,7 +15,8 @@ import {Subject} from "../grade-list.service";
     GradeComponent,
     NgForOf,
     NgIf,
-    SemesterComponent
+    SemesterComponent,
+    AddSemesterComponent
   ],
   templateUrl: './subject.component.html'
 })
