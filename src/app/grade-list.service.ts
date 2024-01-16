@@ -6,17 +6,17 @@ export class allSubject {
   societe = new Subject(8);
   anglais = new Subject(8);
   epsic = new Subject(8);
-  cie = new Subject(8,[5]);
+  cie = new Subject(8,[[5],[3]]);
   tpi: number = 0;
 }
 export class Subject {
   semesterAmount!: number;
-  semesters!: Semester[];
-  average!: WritableSignal<number>;
-  constructor(semesterAmount: number, array: number[] = []) {
+  semesters: Semester[] = [];
+  average!: Signal<number>;
+  constructor(semesterAmount: number, defaultValues: number[][] = [[]]) {
     this.semesterAmount = semesterAmount;
-    this.semesters = [new Semester(array)];
-    this.average = signal(average(this.semesters.map(a => a.average())));
+    defaultValues.forEach((array) => { this.semesters.push(new Semester(array)) });
+    this.average = signal(average(this.semesters.map(a => a.average()), true));
   }
 }
 export class Semester {
@@ -25,7 +25,7 @@ export class Semester {
 
   constructor(array: number[] = []) {
     this.grades = signal(array);
-    this.average = signal(average(this.grades()));
+    this.average = signal(average(this.grades(), true));
   }
 }
 
