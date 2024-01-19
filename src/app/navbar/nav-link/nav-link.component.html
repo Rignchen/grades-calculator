@@ -1,1 +1,2 @@
-<a [class]="style" [routerLink]="link">{{ subject }}</a>
+<a [ngClass]="GradeListService.currentSubject === subjectNumber? 'text-white font-bold' : 'text-sky-100'" [routerLink]="link"
+   class="rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm hover:bg-opacity-10">{{ subject }}</a>

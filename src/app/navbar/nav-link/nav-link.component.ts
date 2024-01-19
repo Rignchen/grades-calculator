@@ -1,28 +1,26 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {last} from "../../../lib";
 import {RouterLink} from "@angular/router";
+import {NgClass} from "@angular/common";
+import {GradeListService} from "../../grade-list.service";
 
 @Component({
     selector: 'app-nav-link',
     standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
+    NgClass
   ],
     templateUrl: './nav-link.component.html'
 })
 export class NavLinkComponent implements OnInit {
   @Input() subject!: string;
-  @Input() isCurrent: boolean = false;
-
-  style = "rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm hover:bg-opacity-10"
+  @Input() subjectNumber!: number;
   link!: string;
 
   ngOnInit() {
-    // style
-    if (this.isCurrent) this.style += " text-white font-bold";
-    else this.style += " text-sky-100"
-
-    // link
     this.link = '/' + last(this.subject.toLowerCase().replaceAll('é', 'e').split(' '));
   }
+
+  protected readonly GradeListService = GradeListService;
 }

@@ -1,6 +1,5 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {NavLinkComponent} from "./nav-link/nav-link.component";
-import {allSubjects} from "../../const";
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +9,4 @@ import {allSubjects} from "../../const";
   ],
   templateUrl: './navbar.component.html'
 })
-export class NavbarComponent {
-  @Input() currentSubject!: number;
-  protected readonly allSubjects = allSubjects;
-}
+export class NavbarComponent {}
