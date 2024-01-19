@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {GradeComponent} from "./grade/grade.component";
 import {NgForOf, NgIf} from "@angular/common";
 import {SemesterComponent} from "./semester/semester.component";
-import {allSubjectsName} from "../../const";
 import {GradeListService, Subject} from "../grade-list.service";
 import {AddSemesterComponent} from "./add-semester/add-semester.component";
 
@@ -25,7 +24,7 @@ export class SubjectComponent implements OnInit{
   subjectName!: string;
 
   ngOnInit() {
-    this.subjectName = allSubjectsName[this.subjectNumber];
+    this.subjectName = ["General", "Mathematiques", "Societe", "Anglais", "Informatique", "Modules EPSIC", "Modules CIE"][this.subjectNumber];
     GradeListService.currentSubject = this.subjectNumber;
     GradeListService.debug.subject_change++;
   }

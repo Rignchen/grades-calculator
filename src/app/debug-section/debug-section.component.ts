@@ -1,7 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {GradeListService} from "../grade-list.service";
 import {RouterOutlet} from "@angular/router";
-import {allSubjects} from "../../const";
 
 @Component({
   selector: 'app-debug-section',
@@ -13,5 +12,5 @@ import {allSubjects} from "../../const";
 })
 export class DebugSectionComponent {
   protected readonly GradeListService = GradeListService;
-  protected readonly allSubjects = allSubjects;
+  protected readonly allSubjects = ["global", "math", "societe", "anglais", "computer", "epsic", "cie"];
 }
