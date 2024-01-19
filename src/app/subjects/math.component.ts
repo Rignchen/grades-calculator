@@ -12,5 +12,5 @@ import {GradeListService} from "../grade-list.service";
 })
 export class MathComponent {
   subject = GradeListService.subjects.math;
-  subjectNumber = 1;
+  subjectNumber = 0;
 }

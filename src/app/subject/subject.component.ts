@@ -24,7 +24,7 @@ export class SubjectComponent implements OnInit{
   subjectName!: string;
 
   ngOnInit() {
-    this.subjectName = ["General", "Mathematiques", "Societe", "Anglais", "Informatique", "Modules EPSIC", "Modules CIE"][this.subjectNumber];
+    this.subjectName = ["Mathematiques", "Societe", "Anglais", "Modules EPSIC", "Modules CIE"][this.subjectNumber];
     GradeListService.currentSubject = this.subjectNumber;
     GradeListService.debug.subject_change++;
   }

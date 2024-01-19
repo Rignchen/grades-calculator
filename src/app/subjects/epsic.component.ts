@@ -12,5 +12,5 @@ import {GradeListService} from "../grade-list.service";
 })
 export class EpsicComponent {
   subject = GradeListService.subjects.epsic;
-  subjectNumber = 5;
+  subjectNumber = 3;
 }

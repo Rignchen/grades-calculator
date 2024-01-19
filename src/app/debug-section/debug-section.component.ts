@@ -12,5 +12,5 @@ import {RouterOutlet} from "@angular/router";
 })
 export class DebugSectionComponent {
   protected readonly GradeListService = GradeListService;
-  protected readonly allSubjects = ["global", "math", "societe", "anglais", "computer", "epsic", "cie"];
+  protected readonly allSubjects = ["math", "societe", "anglais", "epsic", "cie"];
 }

@@ -12,5 +12,5 @@ import {GradeListService} from "../grade-list.service";
 })
 export class CieComponent {
   subject = GradeListService.subjects.cie;
-  subjectNumber = 6;
+  subjectNumber = 4;
 }
