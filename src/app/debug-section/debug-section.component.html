@@ -1,6 +1,8 @@
 <!-- Debug section -->
 <h1 class="text-center text-3xl">Debug</h1>
 <div class="ml-32">
+  The current subject number is {{ GradeListService.currentSubject }} wich stands for {{ allSubjects[GradeListService.currentSubject] }}<br>
+  Subject has been changed {{ GradeListService.debug.subject_change }} times<br>
   Grades list have been updates {{ GradeListService.debug.grade_change }} times<br>
   Semester average have been updates {{ GradeListService.debug.semester_update }} times<br>
   Subject average have been updates {{ GradeListService.debug.subject_update }} times<br>

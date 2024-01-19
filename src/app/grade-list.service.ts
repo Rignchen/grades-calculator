@@ -40,6 +40,7 @@ export class Semester {
 })
 export class GradeListService {
   static subjects = new allSubject();
+  static currentSubject = 0;
 
   static debug = {
     "grade_change": 0,
@@ -49,6 +50,8 @@ export class GradeListService {
     "computer_update": 0,
     "competence_update": 0,
     "display_message": "",
+    "subject_change": 0,
+
     print(message: string) {GradeListService.debug.display_message = message;}
   }
 }
