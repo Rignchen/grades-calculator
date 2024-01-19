@@ -1,7 +1,7 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, computed, Input, OnChanges, OnInit, Signal} from '@angular/core';
 import {AverageComponent} from "./average/average.component";
 import {round, weightedAverage} from "../../lib";
-import {allSubject} from "../grade-list.service";
+import {allSubject, GradeListService} from "../grade-list.service";
 
 @Component({
   selector: 'app-average-list',
@@ -11,33 +11,31 @@ import {allSubject} from "../grade-list.service";
   ],
   templateUrl: './average-list.component.html'
 })
-export class AverageListComponent implements OnInit {
+export class AverageListComponent {
   @Input() subjects!: allSubject;
-  averages!: Averages;
-  ngOnInit() {
-    this.averages = new Averages();
-    this.averages.update(this.subjects);
-  }
-}
-
-class Averages {
-  global: number = 0;
-  competence: number = 0;
-  computer: number = 0;
-  update(subjects: allSubject) {
-    this.computer = round(weightedAverage([
-      [subjects.epsic.average(), 4],
-      [subjects.cie.average(), 1]
-    ]),0.1);
-    this.competence = round(weightedAverage([
-      subjects.math.average(),
-      subjects.anglais.average(),
-    ]),0.5);
-    this.global = round(weightedAverage([
-      [subjects.tpi, 4],
-      [this.computer, 3],
-      [this.competence, 1],
-      [subjects.societe.average(), 2]
-    ]), 0.1);
+  averages: {"computer": Signal<number>, "competence": Signal<number>, "global": Signal<number>} = {
+    computer: computed(() => {
+      GradeListService.debug.computer_update++
+      return round(weightedAverage([
+        [this.subjects.epsic.average(), 4],
+        [this.subjects.cie.average(), 1]
+      ]), 0.1)
+    }),
+    competence: computed(() => {
+      GradeListService.debug.competence_update++
+      return round(weightedAverage([
+        this.subjects.math.average(),
+        this.subjects.anglais.average(),
+      ]), 0.5)
+    }),
+    global: computed(() => {
+      GradeListService.debug.global_update++
+      return round(weightedAverage([
+        [this.subjects.tpi, 4],
+        [this.averages.computer(), 3],
+        [this.averages.competence(), 1],
+        [this.subjects.societe.average(), 2]
+      ]), 0.1)
+    })
   }
 }

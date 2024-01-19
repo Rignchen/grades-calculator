@@ -45,6 +45,9 @@ export class GradeListService {
     "grade_change": 0,
     "semester_update": 0,
     "subject_update": 0,
+    "global_update": 0,
+    "computer_update": 0,
+    "competence_update": 0,
     "display_message": "",
     print(message: string) {GradeListService.debug.display_message = message;}
   }
