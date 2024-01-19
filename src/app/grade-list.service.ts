@@ -1,5 +1,5 @@
-import {Injectable, Signal, signal, WritableSignal} from '@angular/core';
-import {average} from "../lib";
+import {computed, Injectable, Signal, signal, WritableSignal} from '@angular/core';
+import {average, round} from "../lib";
 
 export class allSubject {
   math = new Subject(8);
@@ -11,21 +11,25 @@ export class allSubject {
 }
 export class Subject {
   semesterAmount!: number;
-  semesters: Semester[] = [];
-  average!: Signal<number>;
+  semesters: WritableSignal<Semester[]> = signal([]);
+  average: Signal<number> = computed(
+    () => {
+      return round(average(this.semesters().map((semester) => semester.average()), true), 0.1)
+    }
+  );
   constructor(semesterAmount: number, defaultValues: number[][] = [[]]) {
     this.semesterAmount = semesterAmount;
-    defaultValues.forEach((array) => { this.semesters.push(new Semester(array)) });
-    this.average = signal(average(this.semesters.map(a => a.average()), true));
+    defaultValues.forEach((array) => { this.semesters.update(semesters => [...semesters, new Semester(array)])});
   }
 }
 export class Semester {
   grades!: WritableSignal<number[]>;
-  average!: Signal<number>;
+  average: Signal<number> = computed(() => {
+    return round(average(this.grades(), true), 0.5)
+  });
 
   constructor(array: number[] = []) {
     this.grades = signal(array);
-    this.average = signal(average(this.grades(), true));
   }
 }
 

@@ -1,4 +1,4 @@
-import {Component, Input, signal} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Semester, Subject} from "../../grade-list.service";
 
 @Component({
@@ -8,10 +8,9 @@ import {Semester, Subject} from "../../grade-list.service";
   templateUrl: './add-semester.component.html'
 })
 export class AddSemesterComponent {
-  newSemester() {
-    return new Semester();
-  }
-
   @Input() subject!: Subject;
-  protected readonly signal = signal;
+
+  addSemester() {
+    this.subject.semesters.update(semesters => [...semesters, new Semester()]);
+  }
 }

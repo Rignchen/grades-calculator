@@ -7,7 +7,7 @@
       <app-grade [grade]="grade" *ngFor="let grade of semester.grades()" look="px-2 py-2 text-sm font-medium ring-gray-200"></app-grade>
     </div>
     <div class="flex add-grade">
-      <app-input (gradeChange)="addGrade($event)"></app-input>
+      <app-input [semester]="semester"></app-input>
       <app-grade [grade]="semester.average()" *ngIf="semester.average() > 0" class="ml-1" look="ml-1 font-bold ring-gray-300 px-2 py-2 text-sm"></app-grade>
     </div>
   </dd>
