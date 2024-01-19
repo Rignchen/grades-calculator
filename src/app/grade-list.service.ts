@@ -6,7 +6,7 @@ export class allSubject {
   societe = new Subject(8);
   anglais = new Subject(8);
   epsic = new Subject(8);
-  cie = new Subject(8,[[5],[3]]);
+  cie = new Subject(8);
   tpi: number = 0;
 }
 export class Subject {

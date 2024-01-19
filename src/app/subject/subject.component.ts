@@ -24,9 +24,6 @@ export class SubjectComponent implements OnInit{
 
   subjectName!: string;
 
-  upgrade = 0;
-  oldAverage!: number;
-
   ngOnInit() {
     this.subjectName = allSubjectsName[this.subjectNumber];
   }
