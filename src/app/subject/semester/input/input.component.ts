@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {Semester} from "../../../grade-list.service";
+import {GradeListService, Semester} from "../../../grade-list.service";
 
 @Component({
   selector: 'app-input',
@@ -17,6 +17,7 @@ export class InputComponent {
 
   addGrade() {
     if (this.newGrade && this.newGrade >= 1 && this.newGrade <= 6 && this.newGrade % 0.5 === 0) {
+      GradeListService.debug.grade_change++;
       // @ts-ignore
       this.semester.grades.update((grades) => grades = [...grades,this.newGrade]);
       this.newGrade = null;

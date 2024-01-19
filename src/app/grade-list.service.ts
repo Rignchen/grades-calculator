@@ -14,6 +14,7 @@ export class Subject {
   semesters: WritableSignal<Semester[]> = signal([]);
   average: Signal<number> = computed(
     () => {
+      GradeListService.debug.subject_update++
       return round(average(this.semesters().map((semester) => semester.average()), true), 0.1)
     }
   );
@@ -25,6 +26,7 @@ export class Subject {
 export class Semester {
   grades!: WritableSignal<number[]>;
   average: Signal<number> = computed(() => {
+    GradeListService.debug.semester_update++
     return round(average(this.grades(), true), 0.5)
   });
 
@@ -38,4 +40,12 @@ export class Semester {
 })
 export class GradeListService {
   static subjects = new allSubject();
+
+  static debug = {
+    "grade_change": 0,
+    "semester_update": 0,
+    "subject_update": 0,
+    "display_message": "",
+    print(message: string) {GradeListService.debug.display_message = message;}
+  }
 }
