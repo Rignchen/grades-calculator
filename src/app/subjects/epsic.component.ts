@@ -8,9 +8,10 @@ import {GradeListService} from "../grade-list.service";
   imports: [
     SubjectComponent
   ],
-  templateUrl: './generic.component.html'
+  templateUrl: './generic-modules.component.html'
 })
 export class EpsicComponent {
   subject = GradeListService.subjects.epsic;
   subjectNumber = 3;
 }
+
