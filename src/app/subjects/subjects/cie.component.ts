@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import {SubjectComponent} from "../subject/subject.component";
 import {GradeListService} from "../../grade-list.service";
+import {ModulesComponent} from "../modules/modules.component";
 
 @Component({
   selector: 'app-cie',
   standalone: true,
   imports: [
-    SubjectComponent
+    SubjectComponent,
+    ModulesComponent
   ],
   templateUrl: './generic-modules.component.html'
 })

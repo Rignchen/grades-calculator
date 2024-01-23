@@ -6,7 +6,7 @@ export class allSubject {
   societe = new Subject(8, [[]]);
   anglais = new Subject(8, [[]]);
   epsic  = new Modules(new Map([[110, 3], [112, 5], [113, 1], [114, 6]]));
-  cie    = new Modules(new Map([[110, 3], [112, 5], [113, 1], [114, 6]]));
+  cie    = new Modules(new Map([[110, 3], [112, 1], [113, 1], [114, 6]]));
   tpi: number = 0;
 }
 
@@ -38,7 +38,7 @@ export class Semester {
 export class Modules {
   grades!: WritableSignal<Map<number, number>>;
   average: Signal<number> = computed(() => {
-    GradeListService.debug.subject_update++
+    GradeListService.debug.grade_change++
     return round(average(Array.from(this.grades().values()), true), 0.5)
   });
   constructor(map: Map<number, number>) {
