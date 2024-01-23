@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Semester, Subject} from "../../grade-list.service";
+import {Semester, Subject} from "../../../grade-list.service";
 
 @Component({
   selector: 'app-add-semester',

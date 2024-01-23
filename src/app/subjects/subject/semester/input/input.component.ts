@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {GradeListService, Semester} from "../../../grade-list.service";
+import {GradeListService, Semester} from "../../../../grade-list.service";
 
 @Component({
   selector: 'app-input',

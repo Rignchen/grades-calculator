@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {GradeComponent} from "./grade/grade.component";
+import {GradeComponent} from "./semester/grade/grade.component";
 import {NgForOf, NgIf} from "@angular/common";
 import {SemesterComponent} from "./semester/semester.component";
-import {GradeListService, Subject} from "../grade-list.service";
+import {GradeListService, Subject} from "../../grade-list.service";
 import {AddSemesterComponent} from "./add-semester/add-semester.component";
 
 @Component({

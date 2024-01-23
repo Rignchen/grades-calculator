@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { SemesterComponent } from "./subject/semester/semester.component";
-import {GradeComponent} from "./subject/grade/grade.component";
+import {SemesterComponent} from "./subjects/subject/semester/semester.component";
+import {GradeComponent} from "./subjects/subject/semester/grade/grade.component";
 import {FormsModule} from "@angular/forms";
 import {NavbarComponent} from "./navbar/navbar.component";
 import {AverageListComponent} from "./average-list/average-list.component";

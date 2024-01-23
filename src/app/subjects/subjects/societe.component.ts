@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import {SubjectComponent} from "../subject/subject.component";
-import {GradeListService} from "../grade-list.service";
+import {GradeListService} from "../../grade-list.service";
 
 @Component({
-  selector: 'app-anglais',
+  selector: 'app-societe',
   standalone: true,
   imports: [
     SubjectComponent
   ],
   templateUrl: './generic.component.html'
 })
-export class AnglaisComponent {
-  subject = GradeListService.subjects.anglais;
-  subjectNumber = 2;
+export class SocieteComponent {
+  subject = GradeListService.subjects.societe;
+  subjectNumber = 1;
 }
