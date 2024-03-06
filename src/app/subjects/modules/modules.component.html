@@ -6,13 +6,7 @@
       </h2>
     </div>
     <div class="mt-4 flex md:ml-4 md:mt-0">
-      <span class="inline-flex items-center gap-x-1.5 rounded-md text-gray-900 ring-1 ring-inset ring-gray-200 font-bold text-lg px-3 py-1">
-        <svg class="h-1.5 w-1.5 fill-red-500" viewBox="0 0 6 6" aria-hidden="true">
-          <circle cx="3" cy="3" r="3">
-          </circle>
-        </svg>
-        2
-      </span>
+      <app-grade [grade]="2" [look]="2"/>
     </div>
   </div>
   <div class="mt-6 border-t border-gray-100">
@@ -20,13 +14,7 @@
       <div class="px-4 py-6 gap-2 sm:px-0 flex flex-row flex-wrap">
         <div class="relative">
           <div>
-            <span class="inline-flex items-center gap-x-1.5 rounded-md text-gray-900 ring-1 ring-inset ring-gray-200 font-medium text-sm px-2 py-2">
-              <svg class="h-1.5 w-1.5 fill-red-500" viewBox="0 0 6 6" aria-hidden="true">
-                <circle cx="3" cy="3" r="3">
-                </circle>
-              </svg>
-              2
-            </span>
+            <app-grade [grade]="5" [look]="0"/>
           </div>
         </div>
       </div>
@@ -34,7 +22,7 @@
         <form novalidate="">
           <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 lg:grid-cols-8">
             <div class="sm:col-span-4 lg:col-span-6">
-              <label class="block text-sm font-medium leading-6 text-gray-900">
+              <label class="block text-sm font-medium leading-6 text-gray-900" for="module">
                 Choissisez votre note de module
               </label>
               <div class="relative mt-2">
