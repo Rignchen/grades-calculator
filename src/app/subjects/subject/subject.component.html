@@ -7,7 +7,7 @@
     </h2>
   </div>
   <div class="mt-4 flex md:ml-4 md:mt-0" id="currentAverage">
-    <app-grade [grade]="subject.average()" *ngIf="subject.average() !== 0" look="px-3 py-1 text-lg font-bold ring-gray-200"/>
+    <app-grade [grade]="subject.average()" *ngIf="subject.average() !== 0" [look]=2 />
   </div>
 </div>
 

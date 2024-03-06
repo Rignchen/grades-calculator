@@ -1,14 +1,18 @@
-<span [className]="defaultStyle + look">
-  <svg aria-hidden="true" class="h-1.5 w-1.5 fill-green-500" viewBox="0 0 6 6" *ngIf="grade > 4">
-    <circle cx="3" cy="3" r="3" />
+<span [ngClass]="{
+     'font-medium text-sm px-2 py-2': look==0,
+     'font-bold text-sm px-2 py-2': look==1,
+     'font-bold text-lg px-3 py-1': look==2
+   }" class="inline-flex items-center gap-x-1.5 rounded-md text-gray-900 ring-1 ring-inset ring-gray-200 text-sm px-2 py-2">
+  <svg *ngIf="grade > 4" aria-hidden="true" class="h-1.5 w-1.5 fill-green-500" viewBox="0 0 6 6">
+    <circle cx="3" cy="3" r="3"/>
   </svg>
 
-  <svg aria-hidden="true" class="h-1.5 w-1.5 fill-yellow-500" viewBox="0 0 6 6" *ngIf="grade === 4" >
-    <circle cx="3" cy="3" r="3" />
+  <svg *ngIf="grade === 4" aria-hidden="true" class="h-1.5 w-1.5 fill-yellow-500" viewBox="0 0 6 6">
+    <circle cx="3" cy="3" r="3"/>
   </svg>
 
-  <svg aria-hidden="true" class="h-1.5 w-1.5 fill-red-500" viewBox="0 0 6 6" *ngIf="grade < 4">
-    <circle cx="3" cy="3" r="3" />
+  <svg *ngIf="grade < 4" aria-hidden="true" class="h-1.5 w-1.5 fill-red-500" viewBox="0 0 6 6">
+    <circle cx="3" cy="3" r="3"/>
   </svg>
 
   {{ grade }}

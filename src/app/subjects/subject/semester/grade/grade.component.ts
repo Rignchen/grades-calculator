@@ -1,16 +1,22 @@
 import {Component, Input, numberAttribute, OnInit} from '@angular/core';
-import {NgIf} from "@angular/common";
+import {NgClass, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-grade',
   standalone: true,
   imports: [
-    NgIf
+    NgIf,
+    NgClass
   ],
   templateUrl: './grade.component.html'
 })
+/**
+ * look:<br>
+ * 0 = default grade<br>
+ * 1 = semester average<br>
+ * 2 = subject average<br>
+ **/
 export class GradeComponent {
   @Input() grade!: number;
-  @Input() look: string = "";
-  defaultStyle: string = "inline-flex items-center gap-x-1.5 rounded-md text-gray-900 ring-1 ring-inset ";
+  @Input() look!: number;
 }
